@@ -31,3 +31,32 @@ body {
     text-wrap: balance;
   }
 }
+
+.title {
+  font-size: 50px;
+}
+
+.navigationBar {
+  padding: 15px;
+  height: 100%;
+  background-color: rgb(128, 63, 19);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigationLink {
+  transition-property: border-left-width, border-left-color;
+  transition-timing-function: ease-out;
+  border-left-width: 0px;
+  border-left-color: rgba(0, 0, 0, 0);
+  transition-duration: 0.1s;
+  margin-top: 15px;
+
+  &.selected {
+    border-left-width: 10px;
+    border-left-color: rgb(255, 255, 255);
+  }
+}
