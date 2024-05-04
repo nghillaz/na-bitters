@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import emailPic from "../images/email-outline.svg"
+import { Suspense } from "react";
 
 export enum NavigationBarSelections {
   None,
@@ -14,6 +15,14 @@ export enum NavigationBarSelections {
 export function Common(props: {
   selectedItem: NavigationBarSelections;
 }) {
+  return <Suspense>
+    <CommonInternal {...props} />
+  </Suspense>
+}
+
+function CommonInternal(props: {
+  selectedItem: NavigationBarSelections
+}){
   const searchParams = useSearchParams();
   const previouslySelectedItem = searchParams.get("navFrom");
 
