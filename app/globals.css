@@ -32,31 +32,82 @@ body {
   }
 }
 
-.title {
-  font-size: 50px;
+.full {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  > .belowTitle {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+
+    > .content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      color: black;
+    }
+  }
+}
+
+.titleBar {
+  font-size: 3vw;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  align-items: center;
 }
 
 .navigationBar {
-  padding: 15px;
+  align-self: flex-start;
   height: 100%;
-  background-color: rgb(128, 63, 19);
-  position: absolute;
-  left: 0;
-  top: 0;
   display: flex;
   flex-direction: column;
+  padding: 15px;
+  background-color: rgb(128, 63, 19);
 }
 
 .navigationLink {
+  align-self: flex-start;
+  display: inline-flex;
+  flex-shrink: 1;
+  align-items: center;
   transition-property: border-left-width, border-left-color;
-  transition-timing-function: ease-out;
+  transition-duration: 0.1s;
   border-left-width: 0px;
   border-left-color: rgba(0, 0, 0, 0);
-  transition-duration: 0.1s;
   margin-top: 15px;
+
+  .selectionStrip {
+    transition-property: height;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    width: 5px;
+    background-color: white;
+    height: 0px;
+
+    &.selected {
+      height: 100%;
+    }
+  }
 
   &.selected {
     border-left-width: 10px;
     border-left-color: rgb(255, 255, 255);
+  }
+
+  .caption {
+    transition-property: width, opacity;
+    transition-duration: 0.2s;
+    width: 0px;
+    opacity: 0;
+
+    &.expanded {
+      width: 100px;
+      opacity: 1;
+    }
   }
 }
