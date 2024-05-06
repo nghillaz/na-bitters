@@ -49,31 +49,21 @@ export default function Home() {
     <Suspense>
       <div className="app">
         <div className="page">
-          <div className="title">
+          <div className="header">
             <Image src={titlePic} width={118.75} height={75} alt="" />
-            <div className={archivo.className}>Bitters</div>
+            <div className={archivo.className + " title"}>Bitters</div>
+            <div className="navigationBar">
+              <NavigationLink {...props} type={PageType.Home} />
+              <NavigationLink {...props} type={PageType.Ingredients} />
+              <NavigationLink {...props} type={PageType.Recipes} />
+            </div>
           </div>
           <div className="belowTitle">
-            <NavigationBar {...props} />
             <Content {...props} />
           </div>
         </div >
       </div>
     </Suspense>
-  );
-}
-
-function NavigationBar(
-  props: IGlobalState & {
-    setSelectedPage: Function;
-  }
-) {
-  return (
-    <div className="navigationBar">
-      <NavigationLink {...props} type={PageType.Home} />
-      <NavigationLink {...props} type={PageType.Ingredients} />
-      <NavigationLink {...props} type={PageType.Recipes} />
-    </div>
   );
 }
 
