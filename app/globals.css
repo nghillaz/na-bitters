@@ -15,22 +15,24 @@
 
     >.header {
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
-      align-items: center;
       margin-bottom: 15px;
 
       >.title {
-        font-size: 90px;
-        line-height: 0px;
+        display: flex;
+        align-items: center;
         margin-right: 30px;
-        margin-top: 20px;
+
+        >.text {
+          font-size: 90px;
+          line-height: 0px;
+          margin-top: 20px;
+        }
       }
     }
 
     >.belowTitle {
       display: flex;
-      flex-direction: row;
       flex-grow: 1;
       align-items: stretch;
       justify-items: stretch;

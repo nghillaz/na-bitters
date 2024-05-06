@@ -50,8 +50,10 @@ export default function Home() {
       <div className="app">
         <div className="page">
           <div className="header">
-            <Image src={titlePic} width={118.75} height={75} alt="" />
-            <div className={archivo.className + " title"}>Bitters</div>
+            <div className="title">
+              <Image src={titlePic} width={118.75} height={75} alt="" />
+              <div className={archivo.className + " text"}>Bitters</div>
+            </div>
             <div className="navigationBar">
               <NavigationLink {...props} type={PageType.Home} />
               <NavigationLink {...props} type={PageType.Ingredients} />
