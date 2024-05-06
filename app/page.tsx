@@ -4,12 +4,14 @@ import Image, { StaticImageData } from "next/image";
 import ingredientsPic from "../images/ingredients.png";
 import recipesPic from "../images/recipes.png";
 import homePic from "../images/home.png";
+import titlePic from "../images/title.png";
 import { Suspense, useCallback, useState } from "react";
-import { Archivo } from "next/font/google";
+import { Kalam } from "next/font/google";
 
-const archivo = Archivo({
+const archivo = Kalam({
   subsets: ['latin'],
   display: 'swap',
+  weight: '300',
 });
 
 enum PageType {
@@ -47,7 +49,10 @@ export default function Home() {
     <Suspense>
       <div className="app">
         <div className="page">
-          <div className={archivo.className + " title"}>N/A Bitters</div>
+          <div className="title">
+            <Image src={titlePic} width={158.33333} height={100} alt="" />
+            <div className={archivo.className}>Bitters</div>
+          </div>
           <div className="belowTitle">
             <NavigationBar {...props} />
             <Content {...props} />

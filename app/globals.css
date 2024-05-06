@@ -14,7 +14,10 @@
     height: 100%;
 
     >.title {
-      font-size: 3vw;
+      font-size: 100px;
+      display: flex;
+      flex-direction: row;
+      line-height: 130px;
     }
 
     >.belowTitle {
