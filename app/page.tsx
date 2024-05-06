@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import emailPic from "../images/email-outline.svg";
-import menuPic from "../images/menu.svg";
+import Image, { StaticImageData } from "next/image";
+import ingredientsPic from "../images/ingredients.png";
+import recipesPic from "../images/recipes.png";
 import { Suspense, useCallback, useState } from "react";
 
 enum PageType {
@@ -13,13 +13,11 @@ enum PageType {
 
 interface IGlobalState {
   selectedPage: PageType;
-  isNavigationExpanded: boolean;
 }
 
 export default function Home() {
   const [globalState, _] = useState<IGlobalState>({
     selectedPage: PageType.None,
-    isNavigationExpanded: false,
   });
 
   const setSelectedPage = useCallback(
@@ -33,25 +31,10 @@ export default function Home() {
     [globalState]
   );
 
-  const setIsNavigationExpanded = useCallback(
-    (newValue: boolean) => {
-      const newGlobalState: IGlobalState = {
-        ...globalState,
-        isNavigationExpanded: newValue,
-      };
-      _(newGlobalState);
-    },
-    [globalState]
-  );
-
   return (
     <main>
       <Suspense>
-        <Core
-          {...globalState}
-          setIsNavigationExpanded={setIsNavigationExpanded}
-          setSelectedPage={setSelectedPage}
-        />
+        <Core {...globalState} setSelectedPage={setSelectedPage} />
       </Suspense>
     </main>
   );
@@ -59,12 +42,11 @@ export default function Home() {
 
 function Core(
   props: IGlobalState & {
-    setIsNavigationExpanded: Function;
     setSelectedPage: Function;
   }
 ) {
   return (
-    <div className="full" onClick={() => props.setIsNavigationExpanded(false)}>
+    <div className="full">
       <TitleBar {...props} />
       <div className="belowTitle">
         <NavigationBar {...props} />
@@ -74,21 +56,11 @@ function Core(
   );
 }
 
-function TitleBar(props: IGlobalState & { setIsNavigationExpanded: Function }) {
+function TitleBar(props: IGlobalState) {
   return (
     <>
       <div className="titleBar">
-        <Image
-          src={menuPic}
-          width={100}
-          height={100}
-          alt=""
-          onClick={(event) => {
-            props.setIsNavigationExpanded(!props.isNavigationExpanded);
-            event.stopPropagation();
-          }}
-        />
-        <p>N/A Bitters</p>
+        <div>N/A Bitters</div>
       </div>
     </>
   );
@@ -96,7 +68,6 @@ function TitleBar(props: IGlobalState & { setIsNavigationExpanded: Function }) {
 
 function NavigationBar(
   props: IGlobalState & {
-    setIsNavigationExpanded: Function;
     setSelectedPage: Function;
   }
 ) {
@@ -112,12 +83,19 @@ function NavigationLink(
   props: IGlobalState & { type: PageType; setSelectedPage: Function }
 ) {
   let caption = "";
+  let pic: StaticImageData;
   switch (props.type) {
     case PageType.Ingredients:
       caption = "Ingredients";
+      pic = ingredientsPic;
       break;
     case PageType.Recipes:
       caption = "Recipes";
+      pic = recipesPic;
+      break;
+    default:
+      caption = "Home";
+      pic = ingredientsPic;
       break;
   }
 
@@ -125,24 +103,12 @@ function NavigationLink(
 
   return (
     <div
-      className={[
-        "navigationLink",
-        props.isNavigationExpanded ? "expanded" : "",
-      ].join(" ")}
+      className={["navigationLink", isSelected ? "selected" : ""].join(" ")}
       onClick={() => props.setSelectedPage(props.type)}
     >
-      <div
-        className={["selectionStrip", isSelected ? "selected" : ""].join(" ")}
-      />
-      <Image src={emailPic} width={50} height={50} alt="" />
-      <div
-        className={[
-          "caption",
-          props.isNavigationExpanded ? "expanded" : "",
-        ].join(" ")}
-      >
-        {caption}
-      </div>
+      <Image src={pic} width={50} height={50} alt="" />
+      <div className="caption">{caption}</div>
+      <div className="backgroundColor"/>
     </div>
   );
 }
