@@ -50,7 +50,7 @@ export default function Home() {
       <div className="app">
         <div className="page">
           <div className="title">
-            <Image src={titlePic} width={158.33333} height={100} alt="" />
+            <Image src={titlePic} width={118.75} height={75} alt="" />
             <div className={archivo.className}>Bitters</div>
           </div>
           <div className="belowTitle">
