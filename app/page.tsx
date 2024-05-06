@@ -3,10 +3,17 @@
 import Image, { StaticImageData } from "next/image";
 import ingredientsPic from "../images/ingredients.png";
 import recipesPic from "../images/recipes.png";
+import homePic from "../images/home.png";
 import { Suspense, useCallback, useState } from "react";
+import { Archivo } from "next/font/google";
+
+const archivo = Archivo({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 enum PageType {
-  None,
+  Home,
   Ingredients,
   Recipes,
 }
@@ -17,7 +24,7 @@ interface IGlobalState {
 
 export default function Home() {
   const [globalState, _] = useState<IGlobalState>({
-    selectedPage: PageType.None,
+    selectedPage: PageType.Home,
   });
 
   const setSelectedPage = useCallback(
@@ -31,38 +38,23 @@ export default function Home() {
     [globalState]
   );
 
-  return (
-    <main>
-      <Suspense>
-        <Core {...globalState} setSelectedPage={setSelectedPage} />
-      </Suspense>
-    </main>
-  );
-}
-
-function Core(
-  props: IGlobalState & {
-    setSelectedPage: Function;
+  const props = {
+    ...globalState,
+    setSelectedPage,
   }
-) {
-  return (
-    <div className="full">
-      <TitleBar {...props} />
-      <div className="belowTitle">
-        <NavigationBar {...props} />
-        <Content {...props} />
-      </div>
-    </div>
-  );
-}
 
-function TitleBar(props: IGlobalState) {
   return (
-    <>
-      <div className="titleBar">
-        <div>N/A Bitters</div>
+    <Suspense>
+      <div className="app">
+        <div className="page">
+          <div className={archivo.className + " title"}>N/A Bitters</div>
+          <div className="belowTitle">
+            <NavigationBar {...props} />
+            <Content {...props} />
+          </div>
+        </div >
       </div>
-    </>
+    </Suspense>
   );
 }
 
@@ -72,7 +64,8 @@ function NavigationBar(
   }
 ) {
   return (
-    <div onClick={(event) => event.stopPropagation()} className="navigationBar">
+    <div className="navigationBar">
+      <NavigationLink {...props} type={PageType.Home} />
       <NavigationLink {...props} type={PageType.Ingredients} />
       <NavigationLink {...props} type={PageType.Recipes} />
     </div>
@@ -93,9 +86,10 @@ function NavigationLink(
       caption = "Recipes";
       pic = recipesPic;
       break;
+    case PageType.Home:
     default:
       caption = "Home";
-      pic = ingredientsPic;
+      pic = homePic;
       break;
   }
 
@@ -106,13 +100,16 @@ function NavigationLink(
       className={["navigationLink", isSelected ? "selected" : ""].join(" ")}
       onClick={() => props.setSelectedPage(props.type)}
     >
-      <Image src={pic} width={50} height={50} alt="" />
-      <div className="caption">{caption}</div>
-      <div className="backgroundColor"/>
+      <div className="navigationIcon">
+        <Image src={pic} width={75} height={75} alt="" />
+        <div className="caption">{caption}</div>
+      </div>
     </div>
   );
 }
 
 function Content(props: IGlobalState) {
-  return <div className="content">{PageType[props.selectedPage]}</div>;
+  return <div className="content">
+    <div>{PageType[props.selectedPage]}</div>
+  </div>
 }

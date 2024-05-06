@@ -1,49 +1,56 @@
-.full {
-  background-color: white;
-  height: 100vh;
-  width: 100vw;
+.app {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
 
-  > .belowTitle {
+  >.page {
+    padding: 15px;
     display: flex;
-    flex-grow: 1;
-    flex-direction: row;
+    flex-direction: column;
+    height: 100%;
 
-    > .content {
+    >.title {
+      font-size: 3vw;
+    }
+
+    >.belowTitle {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       flex-grow: 1;
-      color: black;
+      align-items: stretch;
+      justify-items: stretch;
+      justify-content: stretch;
+
+      >.content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: black;
+        outline-offset: -1px;
+        border-radius: 10px;
+        padding: 15px;
+      }
     }
   }
 }
 
-.titleBar {
-  font-size: 3vw;
-  display: flex;
-  flex-direction: row;
-  color: black;
-  align-items: center;
-}
-
 .navigationBar {
-  align-self: flex-start;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  align-self: flex-start;
+  width: 100px;
   z-index: 1;
-
-  &:hover > .navigationLink > .caption {
-    width: 100px;
-    opacity: 1;
-  }
 
   .navigationLink {
     position: relative;
-    transition-property: box-shadow;
-    transition-duration: 0.2s;
-    cursor: pointer;
+    transition-property: box-shadow transform;
+    transition-duration: .1s;
     overflow: hidden;
     padding: 5px;
     align-self: flex-start;
@@ -54,9 +61,10 @@
     border-style: solid;
     border-color: black;
     border-width: 1px;
-    border-radius: 100px;
+    border-radius: 10px;
+    text-align: center;
 
-    &::before {
+    &::after {
       z-index: -1;
       height: 100%;
       width: 100%;
@@ -65,27 +73,37 @@
       position: absolute;
       transition-property: opacity;
       transition-duration: 0.2s;
-      background-image: linear-gradient(
-        to bottom right,
-        rgb(255, 186, 122),
-        rgb(118, 255, 152)
-      );
+      background-image: linear-gradient(to bottom right,
+          rgb(255, 186, 122),
+          rgb(118, 255, 152));
       opacity: 0;
-    }
-
-    &.selected::before {
-      opacity: 1;
-    }
-
-    &:hover {
-      box-shadow: black 2px 2px 2px 0px;
     }
 
     .caption {
-      transition-property: width, opacity;
-      transition-duration: 0.2s;
-      width: 0px;
-      opacity: 0;
+      font-size: x-small;
+      transition-property: height, opacity;
+      transition-duration: .2s;
+      height: 20px;
+      opacity: 1;
+    }
+
+    &.selected {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &:not(.selected) {
+      cursor: pointer;
+
+      &:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: rgb(0, 0, 0) 2px 2px 1px 1px;
+      }
+    }
+
+    &:active {
+      transform: unset !important;
     }
   }
 }
