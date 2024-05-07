@@ -90,7 +90,7 @@
     }
 
     .caption {
-      font-size: x-small;
+      font-size: small;
       transition-property: height, opacity;
       transition-duration: .2s;
       height: 20px;
