@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { CloseButton, Button } from "../components/button";
-import orangePic from "../images/ingredients/orange.png";
 import { StaticImageData } from "next/image";
 import "./ingredients.css";
 import { Filter } from "@/components/filter";
+import images from "../components/images";
 
 export function Ingredients() {
     const [selectedIngredient, setSelectedIngredient] = useState<IngredientType | null>(null);
@@ -39,31 +39,35 @@ function Ingredient(props: { type: IngredientType, isSelected: boolean, onSelect
     switch (props.type) {
         case IngredientType.StarAnise:
             caption = "Star Anise";
-            pic = orangePic;
-            break;
-        case IngredientType.Nutmeg:
-            caption = "Nutmeg";
-            pic = orangePic;
+            pic = images.starAnise;
             break;
         case IngredientType.GrainsOfParadise:
             caption = "Grains of Paradise";
-            pic = orangePic;
+            pic = images.grainsOfParadise;
             break;
         case IngredientType.OrangePeel:
             caption = "Orange Peel";
-            pic = orangePic;
+            pic = images.orange;
             break;
-        case IngredientType.LemonPeel:
-            caption = "Lemon Peel";
-            pic = orangePic;
+        case IngredientType.Nutmeg:
+            caption = "Nutmeg";
+            pic = images.nutmeg;
+            break;
+        case IngredientType.LimePeel:
+            caption = "Lime Peel";
+            pic = images.lime;
+            break;
+        case IngredientType.GrapefruitPeel:
+            caption = "Grapefruit Peel";
+            pic = images.grapefruit;
             break;
         case IngredientType.SichuanPepper:
             caption = "Sichuan Pepper";
-            pic = orangePic;
+            pic = images.sichuanpepper;
             break;
         default:
             caption = "Lemon Peel";
-            pic = orangePic;
+            pic = images.lemon;
             break;
     }
     return <Button caption={caption} image={pic} isSelected={props.isSelected} onSelect={props.onSelect} disabled={props.disabled} />
@@ -84,15 +88,14 @@ enum IngredientFlavor {
 }
 
 enum IngredientType {
-    // Spices
     StarAnise,
     Nutmeg,
     GrainsOfParadise,
-    // Citrus
     OrangePeel,
     LemonPeel,
     LimePeel,
     GrapefruitPeel,
+
+    // TODO
     SichuanPepper,
-    // Roots
 }
