@@ -7,6 +7,10 @@ import homePic from "../images/home.png";
 import titlePic from "../images/title.png";
 import { Suspense, useCallback, useState } from "react";
 import { Kalam } from "next/font/google";
+import { Home } from "./home";
+import { Ingredients } from "./ingredients";
+import { Recipes } from "./recipes";
+import { Button } from "../components/button";
 
 const archivo = Kalam({
   subsets: ['latin'],
@@ -24,7 +28,7 @@ interface IGlobalState {
   selectedPage: PageType;
 }
 
-export default function Home() {
+export default function Main() {
   const [globalState, _] = useState<IGlobalState>({
     selectedPage: PageType.Home,
   });
@@ -90,23 +94,24 @@ function NavigationLink(
       break;
   }
 
-  const isSelected = props.selectedPage === props.type;
-
-  return (
-    <div
-      className={["navigationLink", isSelected ? "selected" : ""].join(" ")}
-      onClick={() => props.setSelectedPage(props.type)}
-    >
-      <div className="navigationIcon">
-        <Image src={pic} width={75} height={75} alt="" />
-        <div className="caption">{caption}</div>
-      </div>
-    </div>
-  );
+  return <Button caption={caption} image={pic} isSelected={props.selectedPage === props.type} onSelect={() => props.setSelectedPage(props.type)} />
 }
 
 function Content(props: IGlobalState) {
+  let content: JSX.Element | null = null;
+  switch (props.selectedPage) {
+    case PageType.Home:
+      content = <Home />
+      break;
+    case PageType.Ingredients:
+      content = <Ingredients />;
+      break;
+    case PageType.Recipes:
+      content = <Recipes />;
+      break;
+  }
+
   return <div className="content">
-    <div>{PageType[props.selectedPage]}</div>
+    {content}
   </div>
 }

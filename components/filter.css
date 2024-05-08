@@ -1,0 +1,18 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+    padding: 5px;
+    align-items: center;
+
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: black;
+    border-radius: 10px;
+
+    .filterIcon {
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+    }
+}

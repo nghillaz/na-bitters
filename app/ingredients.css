@@ -1,0 +1,43 @@
+.ingredients {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .ingredientsFilters {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .ingredientsList {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .ingredientDescription {
+        position: absolute;
+        transition-property: opacity, top, left, right, bottom;
+        transition-duration: .2s;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        pointer-events: none;
+        flex-direction: column;
+        outline-color: black;
+        outline-width: 1px;
+        outline-style: solid;
+        border-radius: 10px;
+        flex-grow: 1;
+        opacity: 0;
+        background-color: white;
+
+        &.expanded {
+            opacity: 1;
+            pointer-events: unset;
+            top: 50px;
+            left: 50px;
+            right: 50px;
+            bottom: 50px;
+        }
+    }
+}
