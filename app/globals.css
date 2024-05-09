@@ -41,107 +41,20 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        outline-width: 1px;
-        outline-style: solid;
-        outline-color: black;
-        outline-offset: -1px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        border-radius: 10px;
         border-radius: 10px;
         padding: 15px;
+        overflow: hidden;
       }
     }
   }
 }
 
-.closeButton {
-  margin: 4px 5px;
-  height: 75px !important;
-  width: 75px !important;
-}
-
 .navigationBar {
   z-index: 1;
   margin-right: 15px;
-}
-
-.selectionButton {
   display: inline-flex;
-  padding: 5px;
-  justify-content: center;
-  align-items: flex-start;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  width: 100px;
-
-  .selectionButtonIcon {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .caption {
-      font-size: small;
-      text-align: center;
-    }
-  }
-}
-
-.highlightable {
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    content: "";
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    transition-property: opacity;
-    transition-duration: 0.2s;
-    background-image: linear-gradient(to bottom right,
-        rgb(255, 186, 122),
-        rgb(118, 255, 152));
-    opacity: 0;
-  }
-
-  &.selected {
-    &::after {
-      opacity: 1;
-    }
-  }
-
-  &::before {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-  }
-}
-
-.clickable {
-  user-select: none;
-  transition-property: transform;
-  transition-duration: .1s;
-
-  &:not(.selected):not(.disabled) {
-    cursor: pointer;
-
-    &:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: rgb(0, 0, 0) 2px 2px 1px 1px;
-    }
-  }
-
-  &:active {
-    transform: unset !important;
-  }
 }

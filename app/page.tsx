@@ -1,16 +1,13 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import ingredientsPic from "../images/ingredients.png";
-import recipesPic from "../images/recipes.png";
-import homePic from "../images/home.png";
-import titlePic from "../images/title.png";
+import images from "./images/_index";
 import { Suspense, useCallback, useState } from "react";
 import { Kalam } from "next/font/google";
 import { Home } from "./home";
-import { Ingredients } from "./ingredients";
-import { Recipes } from "./recipes";
-import { Button } from "../components/button";
+import { Ingredients } from "./ingredients/ingredients";
+import { Recipes } from "./recipes/recipes";
+import { Button } from "./_components/button";
 
 const archivo = Kalam({
   subsets: ['latin'],
@@ -55,7 +52,7 @@ export default function Main() {
         <div className="page">
           <div className="header">
             <div className="title">
-              <Image src={titlePic} width={118.75} height={75} alt="" />
+              <Image src={images.title} width={118.75} height={75} alt="" />
               <div className={archivo.className + " text"}>Bitters</div>
             </div>
             <div className="navigationBar">
@@ -81,16 +78,16 @@ function NavigationLink(
   switch (props.type) {
     case PageType.Ingredients:
       caption = "Ingredients";
-      pic = ingredientsPic;
+      pic = images.ingredients;
       break;
     case PageType.Recipes:
       caption = "Recipes";
-      pic = recipesPic;
+      pic = images.recipes;
       break;
     case PageType.Home:
     default:
       caption = "Home";
-      pic = homePic;
+      pic = images.home;
       break;
   }
 
@@ -114,4 +111,8 @@ function Content(props: IGlobalState) {
   return <div className="content">
     {content}
   </div>
+}
+
+export function classList(names: string[]){
+  return names.filter(n => n.length).join(" ");
 }

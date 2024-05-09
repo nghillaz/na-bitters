@@ -1,5 +1,7 @@
 import Image, { StaticImageData } from "next/image";
-import closePic from "../images/close.svg";
+import images from "../images/_index";
+import "./button.css";
+import { classList } from "../page";
 
 export function Button(props: {
     image: StaticImageData;
@@ -12,15 +14,15 @@ export function Button(props: {
 ) {
     return (
         <div
-            className={[
-                "selectionButton clickable highlightable",
+            className={classList([
+                "button clickable highlightable",
                 props.isSelected ? "selected" : "",
                 props.disabled ? "disabled" : "",
                 props.className ?? "",
-            ].join(" ")}
-            onClick={props.disabled ? undefined : () => props.onSelect()}
+            ])}
+            onClick={props.disabled ? undefined : event => { props.onSelect(); event.stopPropagation(); }}
         >
-            <div className="selectionButtonIcon">
+            <div className="buttonIcon">
                 <Image src={props.image} width={75} height={75} alt="" />
                 {props.caption ? <div className="caption">{props.caption}</div> : null}
             </div>
@@ -29,5 +31,5 @@ export function Button(props: {
 }
 
 export function CloseButton(props: { onClick: Function }) {
-    return <Button image={closePic} onSelect={props.onClick} className="closeButton" />
+    return <Button image={images.close} onSelect={props.onClick} className="closeButton" />
 }
