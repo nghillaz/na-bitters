@@ -1,4 +1,4 @@
-import { classList } from "../page";
+import { classList } from "./_utils";
 import { CloseButton } from "./button";
 import "./popup.css";
 
@@ -12,4 +12,3 @@ export function Popup(props: { visible: boolean, onClose: Function }) {
         <CloseButton onClick={props.onClose} />
     </div>
 }
-

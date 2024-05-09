@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import images from "../images/_index";
 import "./button.css";
-import { classList } from "../page";
+import { classList } from "./_utils";
 
 export function Button(props: {
     image: StaticImageData;
