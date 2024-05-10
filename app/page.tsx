@@ -19,7 +19,6 @@ const archivo = Kalam({
 export default function Main() {
   const [globalState, _] = useState<IGlobalState>({
     selectedPage: PageType.Home,
-    popupEnabled: false,
   });
 
   const setSelectedPage = useCallback(
@@ -33,19 +32,9 @@ export default function Main() {
     [globalState]
   );
 
-  const setPopupEnabled = useCallback((popupEnabled: boolean) => {
-    const newGlobalState: IGlobalState = {
-      ...globalState,
-      popupEnabled,
-    };
-    _(newGlobalState);
-    ;
-  }, [globalState]);
-
   const props = {
     ...globalState,
     setSelectedPage,
-    setPopupEnabled,
   };
 
   return (
@@ -75,7 +64,7 @@ export default function Main() {
 }
 
 function NavigationLink(
-  props: IGlobalState & { type: PageType; setSelectedPage: Function, setPopupEnabled: Function }
+  props: IContentProps & { type: PageType }
 ) {
   let caption = "";
   let pic: StaticImageData;

@@ -38,7 +38,6 @@ export function Ingredients(props: IContentProps) {
       </div>
       <Popup
         visible={!!selectedIngredient}
-        setPopupEnabled={props.setPopupEnabled}
         onClose={() => setSelectedIngredient(null)}
       />
     </div>

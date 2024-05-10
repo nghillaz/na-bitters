@@ -4,12 +4,10 @@ export function classList(names: string[]) {
 
 export type IContentProps = IGlobalState & {
     setSelectedPage: Function,
-    setPopupEnabled: Function,
 }
 
 export interface IGlobalState {
   selectedPage: PageType;
-  popupEnabled: boolean;
 }
 
 export enum PageType {
