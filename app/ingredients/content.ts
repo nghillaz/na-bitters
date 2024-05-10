@@ -2,101 +2,108 @@ import { StaticImageData } from "next/image";
 import images from "./images/_index";
 
 export interface IIngredientContent {
-    caption: string;
-    pic: StaticImageData;
+  caption: string;
+  pic: StaticImageData;
+  description: string;
 }
 
-export function getContent(type: IngredientType): IIngredientContent | null {
-    switch (type) {
-        case IngredientType.StarAnise:
-            return {
-                caption: "Star Anise",
-                pic: images.starAnise,
-            };
-        case IngredientType.GrainsOfParadise:
-            return {
-                caption: "Grains of Paradise",
-                pic: images.grainsOfParadise,
-            };
-        case IngredientType.OrangePeel:
-            return {
-                caption: "Orange Peel",
-                pic: images.orange,
-            };
-        case IngredientType.Nutmeg:
-            return {
-                caption: "Nutmeg",
-                pic: images.nutmeg,
-            };
-        case IngredientType.LimePeel:
-            return {
-                caption: "Lime Peel",
-                pic: images.lime,
-            };
-        case IngredientType.GrapefruitPeel:
-            return {
-                caption: "Grapefruit Peel",
-                pic: images.grapefruit,
-            };
-        default:
-        case IngredientType.SichuanPepper:
-            return {
-                caption: "Sichuan Pepper",
-                pic: images.sichuanpepper,
-            };
-    }
+export function getContent(
+  type: IngredientType | null
+): IIngredientContent | null {
+  switch (type) {
+    case IngredientType.StarAnise:
+      return {
+        caption: "Star Anise",
+        pic: images.starAnise,
+        description:
+          "staranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranisestaranise",
+      };
+    case IngredientType.GrainsOfParadise:
+      return {
+        caption: "Grains of Paradise",
+        pic: images.grainsOfParadise,
+        description: "grains",
+      };
+    case IngredientType.OrangePeel:
+      return {
+        caption: "Orange Peel",
+        pic: images.orange,
+        description: "ora",
+      };
+    case IngredientType.Nutmeg:
+      return {
+        caption: "Nutmeg",
+        pic: images.nutmeg,
+        description: "nutmeg",
+      };
+    case IngredientType.LimePeel:
+      return {
+        caption: "Lime Peel",
+        pic: images.lime,
+        description: "lime",
+      };
+    case IngredientType.GrapefruitPeel:
+      return {
+        caption: "Grapefruit Peel",
+        pic: images.grapefruit,
+        description: "grapefruit",
+      };
+    default:
+      return null;
+  }
 }
 
 export enum IngredientType {
-    StarAnise,
-    Nutmeg,
-    GrainsOfParadise,
-    OrangePeel,
-    LemonPeel,
-    LimePeel,
-    GrapefruitPeel,
+  None,
+  StarAnise,
+  Nutmeg,
+  GrainsOfParadise,
+  OrangePeel,
+  LemonPeel,
+  LimePeel,
+  GrapefruitPeel,
 
-    // Could use improvement
-    SichuanPepper,
+  // Could use improvement
+  SichuanPepper,
 
-    // TODO
-    Coriander,
-    Cardamom,
-    Allspice,
-    AngelicaRoot,
-    BlackPepper,
-    WhitePepper,
-    RedPepperFlake,
-    Cinnamon,
-    ChicoryRoot,
-    Clove,
-    Lemongrass,
-    Rosemary,
-    VanillaBean,
-    AnnattoSeed,
-    Elderflower,
-    Lavender,
-    Mint,
-    BirchBark,
-    BlackWalnutLeaf,
-    Walnut,
-    BlackWalnutHull,
-    BuchuLeaf,
-    BurdockRoot,
-    CacaoNib,
-    JuniperBerry,
-    ChaparralLeaf,
-    Chickweed,
-    Hops,
-    GentianRoot,
-    SarsparillaRoot,
-    SassafrasBark,
-    Wormwood,
-    QuassiaChip,
-    WildCherryBark,
-    Genepi,
+  // TODO
+  Coriander,
+  Cardamom,
+  Allspice,
+  AngelicaRoot,
+  BlackPepper,
+  WhitePepper,
+  RedPepperFlake,
+  Cinnamon,
+  ChicoryRoot,
+  Clove,
+  Lemongrass,
+  Rosemary,
+  VanillaBean,
+  AnnattoSeed,
+  Elderflower,
+  Lavender,
+  Mint,
+  BirchBark,
+  BlackWalnutLeaf,
+  Walnut,
+  BlackWalnutHull,
+  BuchuLeaf,
+  BurdockRoot,
+  CacaoNib,
+  JuniperBerry,
+  ChaparralLeaf,
+  Chickweed,
+  Hops,
+  GentianRoot,
+  SarsparillaRoot,
+  SassafrasBark,
+  Wormwood,
+  QuassiaChip,
+  WildCherryBark,
+  Genepi,
 
-    /*To consider
+  /*To consider
     chrysanthemum
     chamomile
     blackberry, raspberry, blueberry, cranberry, etc

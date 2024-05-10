@@ -1,11 +1,7 @@
 .app {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100vh;
-  width: 100vw;
 
   > .page {
     display: flex;
@@ -25,6 +21,7 @@
         margin-right: 10px;
 
         > .text {
+          height: 0px;
           font-size: 45px;
           margin-top: -11px;
         }
@@ -53,4 +50,34 @@
 .navigationBar {
   z-index: 1;
   display: inline-flex;
+  flex-wrap: wrap;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 186, 122),
+    rgb(118, 255, 152)
+  );
 }

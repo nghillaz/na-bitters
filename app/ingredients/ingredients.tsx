@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Button } from "../_components/button";
 import { Filter } from "@/app/_components/filter";
 import "./ingredients.css";
@@ -13,6 +13,11 @@ export function Ingredients(props: IContentProps) {
     null
   );
 
+  const ingredientContent = useMemo(() => getContent(selectedIngredient), [selectedIngredient]);
+  const ingredientTypes = useMemo(() => {
+    return Object.keys(IngredientType).filter(item => !isNaN(Number(item))).map(type => { return Number(type) as IngredientType });
+  }, []);
+
   return (
     <div className="ingredients" onClick={() => setSelectedIngredient(null)}>
       <div className="ingredientsFilters">
@@ -23,21 +28,19 @@ export function Ingredients(props: IContentProps) {
         />
       </div>
       <div className="ingredientsList">
-        {Object.values(IngredientType)
-          .sort()
-          .filter((type) => isNaN(type as any))
-          .map((type) => (
-            <Ingredient
-              type={IngredientType[type as any] as any}
-              isSelected={selectedIngredient === type}
-              onSelect={() => setSelectedIngredient(type as IngredientType)}
-              disabled={!!selectedIngredient}
-              key={type}
-            />
-          ))}
+        {ingredientTypes.map((type) => (
+          <Ingredient
+            type={type}
+            isSelected={selectedIngredient === type}
+            onSelect={() => setSelectedIngredient(type)}
+            disabled={!!selectedIngredient}
+            key={type}
+          />
+        ))}
       </div>
       <Popup
         visible={!!selectedIngredient}
+        content={<div>{ingredientContent?.description}</div>}
         onClose={() => setSelectedIngredient(null)}
       />
     </div>
