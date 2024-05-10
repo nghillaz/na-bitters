@@ -1,16 +1,15 @@
 .ingredients {
-    position: relative;
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 
-    .ingredientsFilters {
-        display: flex;
-        flex-direction: row;
-    }
+  .ingredientsFilters {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .ingredientsList {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+  .ingredientsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

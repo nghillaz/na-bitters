@@ -1,84 +1,85 @@
 .button {
-    display: inline-flex;
-    padding: 5px;
-    justify-content: center;
-    align-items: flex-start;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    width: 100px;
-    min-height: 107px;
+  display: inline-flex;
+  padding: 2px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2px;
+  width: 75px;
+  min-height: 70px;
 
-    .buttonIcon {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+  .buttonIcon {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
-        .caption {
-            font-size: small;
-            text-align: center;
-        }
+    .caption {
+      font-size: 12px;
+      text-align: center;
     }
+  }
 }
 
 .highlightable {
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-  
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    content: "";
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(255, 186, 122),
+      rgb(118, 255, 152)
+    );
+    opacity: 0;
+  }
+
+  &.selected {
     &::after {
-      z-index: -1;
-      height: 100%;
-      width: 100%;
-      content: "";
-      left: 0px;
-      top: 0px;
-      position: absolute;
-      transition-property: opacity;
-      transition-duration: 0.2s;
-      background-image: linear-gradient(to bottom right,
-          rgb(255, 186, 122),
-          rgb(118, 255, 152));
-      opacity: 0;
-    }
-  
-    &.selected {
-      &::after {
-        opacity: 1;
-      }
-    }
-  
-    &::before {
-      z-index: -1;
-      content: "";
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      height: 100%;
-      width: 100%;
-      background-color: white;
+      opacity: 1;
     }
   }
-  
-  .clickable {
-    user-select: none;
-    transition-property: transform, box-shadow;
-    transition-duration: .1s;
-  
-    &:not(.selected):not(.disabled) {
-      cursor: pointer;
-  
-      &:hover {
-        transform: translate(-3px, -3px);
-        box-shadow: rgb(0, 0, 0) 2px 2px 1px 1px;
-      }
-    }
-  
-    &:active {
-      transform: unset !important;
+
+  &::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+.clickable {
+  user-select: none;
+  transition-property: transform, box-shadow;
+  transition-duration: 0.1s;
+
+  &:not(.selected):not(.disabled) {
+    cursor: pointer;
+
+    &:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: rgb(0, 0, 0) 2px 2px 1px 1px;
     }
   }
+
+  &:active {
+    transform: unset !important;
+  }
+}

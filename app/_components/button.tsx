@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import images from "../images/_index";
 import "./button.css";
-import { classList } from "./_utils";
+import { classList } from "./_common";
 
 export function Button(props: {
     image: StaticImageData;
@@ -23,7 +23,7 @@ export function Button(props: {
             onClick={props.disabled ? undefined : event => { props.onSelect(); event.stopPropagation(); }}
         >
             <div className="buttonIcon">
-                <Image src={props.image} width={75} height={75} alt="" />
+                <Image src={props.image} width={55} height={55} alt="" />
                 {props.caption ? <div className="caption">{props.caption}</div> : null}
             </div>
         </div>

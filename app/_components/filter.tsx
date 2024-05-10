@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import images from "../images/_index";
-import { classList } from "./_utils";
+import { classList } from "./_common";
 import "./filter.css";
 
 export function Filter(props: { prompt: string, options: IFilterOption[], disabled?: boolean }) {

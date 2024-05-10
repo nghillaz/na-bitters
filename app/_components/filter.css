@@ -1,23 +1,22 @@
 .filter {
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 1;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  padding: 5px;
+  padding-right: 10px;
+  align-items: center;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+
+  .filterIcon {
+    width: 20px;
+    height: 20px;
     padding: 5px;
-    padding-right: 10px;
-    align-items: center;
+  }
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 10px;
-
-    .filterIcon {
-        width: 20px;
-        height: 20px;
-        padding: 5px;
-    }
-
-    .dropdown {
-        
-    }
+  .dropdown {
+  }
 }

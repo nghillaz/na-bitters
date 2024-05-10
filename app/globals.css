@@ -7,47 +7,44 @@
   height: 100vh;
   width: 100vw;
 
-  >.page {
-    padding: 15px;
+  > .page {
     display: flex;
     flex-direction: column;
     height: 100%;
 
-    >.header {
-      display: flex;
+    .header {
+      display: inline-flex;
       flex-wrap: wrap;
+      border-style: none dashed dashed none;
+      border-radius: 12px;
+      border-width: 1px;
+      border-color: rgba(0, 0, 0, 0.5);
 
-      >.title {
+      > .title {
         display: flex;
-        align-items: center;
-        margin: 0 30px 15px 0;
+        margin-right: 10px;
 
-        >.text {
-          font-size: 90px;
-          line-height: 0px;
-          margin-top: 20px;
+        > .text {
+          font-size: 45px;
+          margin-top: -11px;
         }
       }
     }
 
-    >.belowTitle {
+    > .belowTitle {
       display: flex;
       flex-grow: 1;
       align-items: stretch;
       justify-items: stretch;
       justify-content: stretch;
 
-      >.content {
+      > .content {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        border-style: solid;
-        border-color: black;
-        border-width: 1px;
-        border-radius: 10px;
-        border-radius: 10px;
-        padding: 15px;
         overflow: hidden;
+        padding-top: 2px;
+        margin-top: 0px;
       }
     }
   }
@@ -55,6 +52,5 @@
 
 .navigationBar {
   z-index: 1;
-  margin-right: 15px;
   display: inline-flex;
 }
