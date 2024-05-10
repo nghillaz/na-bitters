@@ -72,13 +72,13 @@
   &:not(.selected):not(.disabled) {
     cursor: pointer;
 
-    &:hover {
+    &:hover, &:focus {
       transform: translate(-3px, -3px);
       box-shadow: rgb(0, 0, 0) 2px 2px 1px 1px;
     }
   }
 
-  &:active {
+  &.clicked {
     transform: unset !important;
   }
 }
