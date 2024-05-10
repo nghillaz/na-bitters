@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Button } from "../_components/button";
 import { Filter } from "@/app/_components/filter";
-import "./ingredients.css";
-import { IngredientFlavor, IngredientType, getContent, getFlavorName } from "./content";
+import { getContent } from "./content";
 import { Popup } from "../_components/popup";
 import { IContentProps, enumToList } from "../_components/_common";
 import { StaticImageData } from "next/image";
+import { IngredientFlavor, IngredientType, getFlavorName } from "./enums";
+import "./ingredients.css";
 
 export function Ingredients(props: IContentProps) {
   const [selectedIngredient, setSelectedIngredient] = useState<IngredientType | null>(null);
@@ -72,9 +73,4 @@ function Ingredient(props: {
       disabled={props.disabled}
     />
   );
-}
-
-enum FilterType {
-  Category,
-  Flavor,
 }
