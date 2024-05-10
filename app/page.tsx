@@ -86,8 +86,9 @@ function NavigationLink(
 
   return (
     <Button
+      className="navButton"
       caption={caption}
-      image={pic}
+      pic={pic}
       isSelected={props.selectedPage === props.type}
       onSelect={() => props.setSelectedPage(props.type)}
     />
@@ -98,13 +99,13 @@ function Content(props: IContentProps) {
   let content: JSX.Element | null = null;
   switch (props.selectedPage) {
     case PageType.Home:
-      content = <Home {...props}/>;
+      content = <Home {...props} />;
       break;
     case PageType.Ingredients:
       content = <Ingredients {...props} />;
       break;
     case PageType.Recipes:
-      content = <Recipes {...props}/>;
+      content = <Recipes {...props} />;
       break;
   }
 

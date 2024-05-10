@@ -1,3 +1,7 @@
+.navButton {
+  min-height: 70px;
+}
+
 .button {
   display: inline-flex;
   padding: 2px;
@@ -5,7 +9,6 @@
   align-items: flex-start;
   margin: 2px;
   width: 75px;
-  min-height: 70px;
 
   .buttonIcon {
     height: 100%;
@@ -46,7 +49,7 @@
     opacity: 0;
   }
 
-  &.selected {
+  &.highlighted {
     &::after {
       opacity: 1;
     }
@@ -72,7 +75,7 @@
   &:not(.selected):not(.disabled) {
     cursor: pointer;
 
-    &:hover, &:focus {
+    &:hover {
       transform: translate(-3px, -3px);
       box-shadow: rgb(0, 0, 0) 2px 2px 1px 1px;
     }

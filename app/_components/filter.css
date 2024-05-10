@@ -1,23 +1,78 @@
+.paddingRight {
+  width: 5px;
+}
+
 .filter {
+  user-select: none;
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-shrink: 1;
-  padding: 5px;
   margin: 2px;
-  padding-right: 10px;
   align-items: center;
-
+  overflow: visible;
   border-style: solid;
   border-width: 1px;
   border-color: black;
   border-radius: 10px;
 
+  &.expanded {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-style: none;
+    margin-bottom: 3px;
+
+    .filterIcon {
+      border-style: none;
+      margin-right: 3px;
+    }
+  }
+
   .filterIcon {
-    width: 20px;
-    height: 20px;
-    padding: 5px;
+    width: 19px;
+    height: 18px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 0px;
+    margin-left: -1px;
+    border-bottom-right-radius: 0px;
+    margin-right: 2px;
+    border-top-right-radius: 0px;
+    border-style: none;
+    border-right-style: solid;
   }
 
   .dropdown {
+    position: absolute;
+    z-index: 997;
+    align-items: center;
+    background-color: white;
+    border-style: solid;
+    border-top-style: none;
+    border-width: 1px;
+    border-color: black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    max-height: 0px;
+    opacity: 0;
+    pointer-events: none;
+    top: 22px;
+    left: 0px;
+    margin-left: -1px;
+    padding-top: 15px;
+
+    &.visible {
+      transition: max-height 1s, opacity .2s;
+      opacity: 1;
+      max-height: 100vh;
+      pointer-events: unset;
+    }
+
+    .dropdownOption {
+      min-width: 100px;
+      padding: 5px;
+    }
   }
 }

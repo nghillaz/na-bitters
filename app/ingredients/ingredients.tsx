@@ -1,42 +1,49 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Button } from "../_components/button";
 import { Filter } from "@/app/_components/filter";
 import "./ingredients.css";
-import { IngredientType, getContent } from "./content";
+import { IngredientFlavor, IngredientType, getContent, getFlavorName } from "./content";
 import { Popup } from "../_components/popup";
-import { IContentProps } from "../_components/_common";
+import { IContentProps, enumToList } from "../_components/_common";
+import { StaticImageData } from "next/image";
 
 export function Ingredients(props: IContentProps) {
-  const [selectedIngredient, setSelectedIngredient] =
-    useState<IngredientType | null>(null);
-  const [flavorFilters, setFlavorFilters] = useState<IngredientFlavor[] | null>(
-    null
-  );
+  const [selectedIngredient, setSelectedIngredient] = useState<IngredientType | null>(null);
+  const [flavorFilters, setFlavorFilters] = useState<IngredientFlavor[] | null>(null);
 
-  const ingredientContent = useMemo(() => getContent(selectedIngredient), [selectedIngredient]);
-  const ingredientTypes = useMemo(() => {
-    return Object.keys(IngredientType).filter(item => !isNaN(Number(item))).map(type => { return Number(type) as IngredientType });
-  }, []);
+  const ingredientContent = getContent(selectedIngredient);
+  const ingredientTypes = enumToList<IngredientType>(IngredientType);
+  const flavors = enumToList<IngredientFlavor>(IngredientFlavor);
 
   return (
     <div className="ingredients" onClick={() => setSelectedIngredient(null)}>
       <div className="ingredientsFilters">
         <Filter
-          prompt="abc"
-          options={[{ name: "abcd", key: "123" }]}
-          disabled={!!selectedIngredient}
+          prompt="Flavors"
+          options={flavors.map(f => { return { name: getFlavorName(f), key: f } })}
+          selections={flavorFilters ?? []}
+          setSelections={setFlavorFilters}
         />
       </div>
       <div className="ingredientsList">
-        {ingredientTypes.map((type) => (
-          <Ingredient
+        {ingredientTypes.map((type) => {
+          const content = getContent(type);
+          if (!content) { return null; }
+          console.log("flavorFilters: " + flavorFilters);
+          console.log("contentFilters: " + content.flavors);
+          console.log(typeof flavorFilters?.[0]);
+          console.log(typeof content.flavors?.[0]);
+          if (flavorFilters?.length && !content.flavors?.some(f => flavorFilters.includes(f))) { return null; }
+          return <Ingredient
             type={type}
             isSelected={selectedIngredient === type}
             onSelect={() => setSelectedIngredient(type)}
             disabled={!!selectedIngredient}
             key={type}
+            caption={content.caption}
+            pic={content.pic}
           />
-        ))}
+        })}
       </div>
       <Popup
         visible={!!selectedIngredient}
@@ -52,15 +59,14 @@ function Ingredient(props: {
   isSelected: boolean;
   onSelect: Function;
   disabled: boolean;
+  caption: string;
+  pic: StaticImageData;
 }) {
-  const content = getContent(props.type);
-  if (!content) {
-    return <></>;
-  }
   return (
     <Button
-      caption={content.caption}
-      image={content.pic}
+      className="navButton"
+      caption={props.caption}
+      pic={props.pic}
       isSelected={props.isSelected}
       onSelect={props.onSelect}
       disabled={props.disabled}
@@ -71,11 +77,4 @@ function Ingredient(props: {
 enum FilterType {
   Category,
   Flavor,
-}
-
-enum IngredientCategory {}
-
-enum IngredientFlavor {
-  Bitter,
-  Sweet,
 }

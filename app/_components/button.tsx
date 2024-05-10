@@ -5,8 +5,8 @@ import { classList } from "./_common";
 import { KeyboardEventHandler, MouseEventHandler, useCallback, useRef, KeyboardEvent as ReactKeyboardEvent, MouseEvent as ReactMouseEvent } from "react";
 
 export function Button(props: {
-    image: StaticImageData;
     onSelect: Function,
+    pic?: StaticImageData;
     caption?: string,
     isSelected?: boolean,
     className?: string,
@@ -15,7 +15,7 @@ export function Button(props: {
 ) {
     const buttonEl = useRef<HTMLDivElement>(null);
 
-    const onPress: KeyboardEventHandler & MouseEventHandler = useCallback((event: ReactKeyboardEvent & ReactMouseEvent) => {
+    const onPress: KeyboardEventHandler & MouseEventHandler = (event: ReactKeyboardEvent & ReactMouseEvent) => {
         if (!buttonEl.current) { return; }
 
         if (event.key !== undefined) {
@@ -34,9 +34,9 @@ export function Button(props: {
                 buttonEl.current.classList.add("clicked");
             }
         }
-    }, []);
+    };
 
-    const onRelease: KeyboardEventHandler & MouseEventHandler = useCallback((event: ReactKeyboardEvent & ReactMouseEvent) => {
+    const onRelease: KeyboardEventHandler & MouseEventHandler = (event: ReactKeyboardEvent & ReactMouseEvent) => {
         if (!buttonEl.current) { return; }
         if (event.key !== undefined) {
             switch (event.key) {
@@ -54,13 +54,13 @@ export function Button(props: {
                 buttonEl.current.classList.remove("clicked");
             }
         }
-    }, []);
+    };
 
     return (
         <div tabIndex={0} ref={buttonEl}
             className={classList([
                 "button clickable highlightable",
-                props.isSelected ? "selected" : "",
+                props.isSelected ? "highlighted" : "",
                 props.disabled ? "disabled" : "",
                 props.className ?? "",
             ])}
@@ -72,7 +72,7 @@ export function Button(props: {
             onClick={props.disabled ? undefined : event => { props.onSelect(); event.stopPropagation(); }}
         >
             <div className="buttonIcon">
-                <Image src={props.image} width={55} height={55} alt="" />
+                {props.pic ? <Image src={props.pic} width={55} height={55} alt="" /> : null}
                 {props.caption ? <div className="caption">{props.caption}</div> : null}
             </div>
         </div>
@@ -80,5 +80,5 @@ export function Button(props: {
 }
 
 export function CloseButton(props: { onClick: Function }) {
-    return <Button image={images.close} onSelect={props.onClick} className="closeButton" />
+    return <Button pic={images.close} onSelect={props.onClick} className="closeButton" />
 }
