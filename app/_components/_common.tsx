@@ -1,5 +1,3 @@
-import { userAgent } from "next/server";
-
 export function classList(names: string[]) {
   return names.filter((n) => n.length).join(" ");
 }
@@ -21,5 +19,3 @@ export enum PageType {
   Ingredients,
   Recipes,
 }
-
-export const isMobile = /iPhone|iPad|iPod|Android/i.test(userAgent.name);

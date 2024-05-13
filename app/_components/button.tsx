@@ -7,6 +7,7 @@ import {
   KeyboardEvent as ReactKeyboardEvent,
   MouseEvent as ReactMouseEvent,
 } from "react";
+import { isMobile } from "react-device-detect";
 import "./button.css";
 
 export interface IButtonProps {
@@ -74,7 +75,8 @@ export function Button(props: IButtonProps) {
       tabIndex={0}
       ref={buttonEl}
       className={classList([
-        "button clickable highlightable",
+        "button highlightable",
+        !isMobile ? "clickable" : "",
         props.isSelected ? "highlighted" : "",
         props.disabled ? "disabled" : "",
         props.className ?? "",
