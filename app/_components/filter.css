@@ -45,7 +45,7 @@
   .dropdown {
     position: absolute;
     z-index: 997;
-    align-items: center;
+    align-items: flex-start;
     background-color: white;
     border-style: solid;
     border-top-style: none;
@@ -61,18 +61,28 @@
     top: 22px;
     left: 0px;
     margin-left: -1px;
-    padding-top: 15px;
+    padding-top: 5px;
 
     &.visible {
-      transition: max-height 1s, opacity .2s;
+      transition: max-height 1s, opacity 0.2s;
       opacity: 1;
       max-height: 100vh;
       pointer-events: unset;
     }
 
     .dropdownOption {
-      min-width: 100px;
-      padding: 5px;
+      justify-content: flex-start;
+      padding-right: 5px;
+
+      .icon {
+        transition-property: transform;
+        transition-duration: 0.2s;
+        transform: rotateX(0deg);
+
+        &.remove {
+          transform: rotate(45deg);
+        }
+      }
     }
   }
 }

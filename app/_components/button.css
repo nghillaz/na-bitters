@@ -1,5 +1,5 @@
-.navButton {
-  min-height: 70px;
+.iconButton {
+  width: 75px;
 }
 
 .button {
@@ -8,18 +8,10 @@
   justify-content: center;
   align-items: flex-start;
   margin: 2px;
-  width: 75px;
 
-  .buttonIcon {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .caption {
-      font-size: 12px;
-      text-align: center;
-    }
+  .caption {
+    font-size: 12px;
+    text-align: center;
   }
 }
 

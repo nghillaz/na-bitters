@@ -1,72 +1,72 @@
-enum IngredientCategory { }
+enum IngredientCategory {}
 
 export function getFlavorName(flavor: IngredientFlavor) {
-    switch (flavor) {
-        case IngredientFlavor.Bitter:
-            return "Bitter";
-        case IngredientFlavor.Sweet:
-            return "Sweet";
-        default:
-            return "<unknown flavor>";
-    }
+  switch (flavor) {
+    case IngredientFlavor.Bitter:
+      return "Bitterrrrrrrrrrrrrr";
+    case IngredientFlavor.Sweet:
+      return "Sweet";
+    default:
+      return "<unknown flavor>";
+  }
 }
 
 export enum IngredientFlavor {
-    Bitter,
-    Sweet,
+  Bitter,
+  Sweet,
 }
 
 export enum IngredientType {
-    None,
-    StarAnise,
-    Nutmeg,
-    GrainsOfParadise,
-    OrangePeel,
-    LemonPeel,
-    LimePeel,
-    GrapefruitPeel,
-    Coriander,
-    Cardamom,
-    Allspice,
-    BlackPepper,
-    WhitePepper,
-    RedPepperFlake,
-    Cinnamon,
-    
-    // Could use improvement
-    SichuanPepper,
-    AngelicaRoot,
+  None,
+  StarAnise,
+  Nutmeg,
+  GrainsOfParadise,
+  OrangePeel,
+  LemonPeel,
+  LimePeel,
+  GrapefruitPeel,
+  Coriander,
+  Cardamom,
+  Allspice,
+  BlackPepper,
+  WhitePepper,
+  RedPepperFlake,
+  Cinnamon,
 
-    // TODO
-    ChicoryRoot,
-    Clove,
-    Lemongrass,
-    Rosemary,
-    VanillaBean,
-    AnnattoSeed,
-    Elderflower,
-    Lavender,
-    Mint,
-    BirchBark,
-    BlackWalnutLeaf,
-    Walnut,
-    BlackWalnutHull,
-    BuchuLeaf,
-    BurdockRoot,
-    CacaoNib,
-    JuniperBerry,
-    ChaparralLeaf,
-    Chickweed,
-    Hops,
-    GentianRoot,
-    SarsparillaRoot,
-    SassafrasBark,
-    Wormwood,
-    QuassiaChip,
-    WildCherryBark,
-    Genepi,
+  // Could use improvement
+  SichuanPepper,
+  AngelicaRoot,
 
-    /*To consider
+  // TODO
+  ChicoryRoot,
+  Clove,
+  Lemongrass,
+  Rosemary,
+  VanillaBean,
+  AnnattoSeed,
+  Elderflower,
+  Lavender,
+  Mint,
+  BirchBark,
+  BlackWalnutLeaf,
+  Walnut,
+  BlackWalnutHull,
+  BuchuLeaf,
+  BurdockRoot,
+  CacaoNib,
+  JuniperBerry,
+  ChaparralLeaf,
+  Chickweed,
+  Hops,
+  GentianRoot,
+  SarsparillaRoot,
+  SassafrasBark,
+  Wormwood,
+  QuassiaChip,
+  WildCherryBark,
+  Genepi,
+
+  /*To consider
       chrysanthemum
       chamomile
       blackberry, raspberry, blueberry, cranberry, etc

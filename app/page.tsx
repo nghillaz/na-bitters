@@ -7,7 +7,7 @@ import { Kalam } from "next/font/google";
 import { Home } from "./home";
 import { Ingredients } from "./ingredients/ingredients";
 import { Recipes } from "./recipes/recipes";
-import { Button } from "./_components/button";
+import { IconButton } from "./_components/button";
 import { IContentProps, IGlobalState, PageType } from "./_components/_common";
 
 const archivo = Kalam({
@@ -48,9 +48,9 @@ export default function Main() {
                 <div className={archivo.className + " text"}>Bitters</div>
               </div>
               <div className="navigationBar">
-                <NavigationLink {...props} type={PageType.Home} />
-                <NavigationLink {...props} type={PageType.Ingredients} />
-                <NavigationLink {...props} type={PageType.Recipes} />
+                <NavigationButton {...props} type={PageType.Home} />
+                <NavigationButton {...props} type={PageType.Ingredients} />
+                <NavigationButton {...props} type={PageType.Recipes} />
               </div>
             </div>
           </div>
@@ -63,9 +63,24 @@ export default function Main() {
   );
 }
 
-function NavigationLink(
-  props: IContentProps & { type: PageType }
-) {
+function Content(props: IContentProps) {
+  let content: JSX.Element | null = null;
+  switch (props.selectedPage) {
+    case PageType.Home:
+      content = <Home {...props} />;
+      break;
+    case PageType.Ingredients:
+      content = <Ingredients {...props} />;
+      break;
+    case PageType.Recipes:
+      content = <Recipes {...props} />;
+      break;
+  }
+
+  return <div className="content">{content}</div>;
+}
+
+function NavigationButton(props: IContentProps & { type: PageType }) {
   let caption = "";
   let pic: StaticImageData;
   switch (props.type) {
@@ -85,29 +100,11 @@ function NavigationLink(
   }
 
   return (
-    <Button
-      className="navButton"
+    <IconButton
       caption={caption}
       pic={pic}
       isSelected={props.selectedPage === props.type}
       onSelect={() => props.setSelectedPage(props.type)}
     />
   );
-}
-
-function Content(props: IContentProps) {
-  let content: JSX.Element | null = null;
-  switch (props.selectedPage) {
-    case PageType.Home:
-      content = <Home {...props} />;
-      break;
-    case PageType.Ingredients:
-      content = <Ingredients {...props} />;
-      break;
-    case PageType.Recipes:
-      content = <Recipes {...props} />;
-      break;
-  }
-
-  return <div className="content">{content}</div>;
 }

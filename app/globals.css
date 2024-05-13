@@ -51,6 +51,12 @@ body {
   }
 }
 
+.centeredFlexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .navigationBar {
   z-index: 1;
   display: inline-flex;
