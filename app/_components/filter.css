@@ -1,8 +1,9 @@
 .paddingRight {
-  width: 5px;
+  width: 3px;
 }
 
 .filter {
+  padding: 5px;
   user-select: none;
   position: relative;
   display: flex;
@@ -29,14 +30,12 @@
   }
 
   .filterIcon {
-    width: 19px;
-    height: 18px;
-    padding: 2px;
-    padding-left: 4px;
-    padding-right: 0px;
-    margin-left: -1px;
+    width: 22px;
+    height: 25px;
+    margin: -7px 0px -7px -5px;
+    padding: 7px 0px 0px 5px;
     border-bottom-right-radius: 0px;
-    margin-right: 2px;
+    margin-right: 5px;
     border-top-right-radius: 0px;
     border-style: none;
     border-right-style: solid;
@@ -72,7 +71,7 @@
 
     .dropdownOption {
       justify-content: flex-start;
-      padding-right: 5px;
+      padding: 7px;
 
       .icon {
         transition-property: transform;
