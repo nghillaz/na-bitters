@@ -98,7 +98,7 @@ export function getContent(
       };
     case IngredientType.BirchBark:
       return {
-        caption: "Birch Bark",
+        caption: "Birch Barrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrk",
         navPic: images.cinnamon,
         detailPic: images.cinnamon,
         herbCoLink: "https://www.herbco.com/p-699-birch-bark-cs.aspx",

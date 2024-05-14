@@ -16,17 +16,20 @@
 
 .ingredientContent {
   display: flex;
-  flex-direction: row;
+  align-items: flex-start;
+  height: 100%;
 
   .ingredientImage {
     position: relative;
     flex-basis: 0;
     flex-grow: 1;
+    max-width: 50%;
+    max-height: 90%;
+    aspect-ratio: 1/1;
   }
 
   .ingredientDetails {
-    flex-basis: 0;
-    flex-grow: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

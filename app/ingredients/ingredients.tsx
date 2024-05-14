@@ -67,6 +67,7 @@ export function Ingredients(props: IContentProps) {
                 src={ingredientContent?.detailPic ?? images.ingredients}
                 alt=""
                 layout="fill"
+                objectFit="contain"
               />
             </div>
             <div className="ingredientDetails">
