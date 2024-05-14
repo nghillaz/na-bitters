@@ -13,3 +13,28 @@
     flex-wrap: wrap;
   }
 }
+
+.ingredientContent {
+  display: flex;
+  flex-direction: row;
+
+  .ingredientImage {
+    position: relative;
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  .ingredientDetails {
+    flex-basis: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .ingredientTitle {
+      margin-right: 55px;
+      height: 55px;
+      font-size: large;
+    }
+  }
+}

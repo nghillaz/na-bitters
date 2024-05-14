@@ -77,3 +77,12 @@
     transform: unset !important;
   }
 }
+
+.launchButton {
+  display: flex;
+  font-size: large;
+  align-items: flex-end;
+  > * {
+    margin: 2px;
+  }
+}

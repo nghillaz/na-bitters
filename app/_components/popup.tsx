@@ -46,5 +46,5 @@ export function Popup(props: {
 }
 
 function CloseButton(props: { onClick: Function }) {
-  return <IconButton pic={images.close} onSelect={props.onClick} className="closeButton" isSelected={false}/>;
+  return <IconButton pic={images.close} onSelect={props.onClick} className="closeButton" isSelected={false} width={35} height={35}/>;
 }

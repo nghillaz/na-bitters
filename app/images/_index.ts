@@ -5,6 +5,7 @@ import title from "./title.png";
 import ingredients from "./ingredients.png";
 import recipes from "./recipes.png";
 import plus from "./plus.svg";
+import launch from "./launch.svg";
 
 const index = {
   ingredients,
@@ -14,6 +15,7 @@ const index = {
   home,
   title,
   plus,
+  launch,
 };
 
 export default index;

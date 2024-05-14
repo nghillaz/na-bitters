@@ -4,9 +4,11 @@ import { IngredientFlavor, IngredientType } from "./enums";
 
 export interface IIngredientContent {
   caption: string;
-  pic: StaticImageData;
+  navPic: StaticImageData;
+  detailPic?: StaticImageData;
   description?: string;
   flavors?: IngredientFlavor[];
+  herbCoLink?: string;
 }
 
 export function getContent(
@@ -16,83 +18,90 @@ export function getContent(
     case IngredientType.StarAnise:
       return {
         caption: "Star Anise",
-        pic: images.starAnise,
+        navPic: images.starAnise,
         description: "star anise",
       };
     case IngredientType.GrainsOfParadise:
       return {
         caption: "Grains of Paradise",
-        pic: images.grainsOfParadise,
+        navPic: images.grainsOfParadise,
         description: "grains",
       };
     case IngredientType.OrangePeel:
       return {
         caption: "Orange Peel",
-        pic: images.orange,
+        navPic: images.orange,
         description: "ora",
-        flavors: [IngredientFlavor.Bitter]
+        flavors: [IngredientFlavor.Bitter],
       };
     case IngredientType.Nutmeg:
       return {
         caption: "Nutmeg",
-        pic: images.nutmeg,
+        navPic: images.nutmeg,
         description: "nutmeg",
       };
     case IngredientType.LimePeel:
       return {
         caption: "Lime Peel",
-        pic: images.lime,
+        navPic: images.lime,
         description: "lime",
-        flavors: [IngredientFlavor.Bitter]
+        flavors: [IngredientFlavor.Bitter],
       };
     case IngredientType.GrapefruitPeel:
       return {
         caption: "Grapefruit Peel",
-        pic: images.grapefruit,
+        navPic: images.grapefruit,
         description: "grapefruit",
-        flavors: [IngredientFlavor.Bitter]
+        flavors: [IngredientFlavor.Bitter],
       };
     case IngredientType.Coriander:
       return {
         caption: "Coriander",
-        pic: images.coriander,
+        navPic: images.coriander,
         description: "coriander",
-      }
+      };
     case IngredientType.Cardamom:
       return {
         caption: "Cardamom",
-        pic: images.cardamom,
+        navPic: images.cardamom,
         description: "cardamom",
-      }
+      };
     case IngredientType.Allspice:
       return {
         caption: "Allspice",
-        pic: images.allspice,
+        navPic: images.allspice,
       };
     case IngredientType.AngelicaRoot:
       return {
         caption: "Angelica Root",
-        pic: images.angelicaroot,
+        navPic: images.angelicaroot,
       };
     case IngredientType.BlackPepper:
       return {
         caption: "Black Pepper",
-        pic: images.blackpepper,
+        navPic: images.blackpepper,
       };
     case IngredientType.WhitePepper:
       return {
         caption: "White Pepper",
-        pic: images.whitepepper,
+        navPic: images.whitepepper,
       };
     case IngredientType.RedPepperFlake:
       return {
         caption: "Red Pepper Flakes",
-        pic: images.redpepperflake,
+        navPic: images.redpepperflake,
       };
     case IngredientType.Cinnamon:
       return {
         caption: "Cinnamon",
-        pic: images.cinnamon,
+        navPic: images.cinnamon,
+      };
+    case IngredientType.BirchBark:
+      return {
+        caption: "Birch Bark",
+        navPic: images.cinnamon,
+        detailPic: images.cinnamon,
+        herbCoLink: "https://www.herbco.com/p-699-birch-bark-cs.aspx",
       };
     default:
       return null;

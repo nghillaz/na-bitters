@@ -8,6 +8,7 @@ import {
   MouseEvent as ReactMouseEvent,
 } from "react";
 import { isMobile } from "react-device-detect";
+import images from "../images/_index";
 import "./button.css";
 
 export interface IButtonProps {
@@ -105,6 +106,8 @@ export function IconButton(
     pic: StaticImageData;
     caption?: string;
     className?: string;
+    width?: number;
+    height?: number;
   }
 ) {
   return (
@@ -112,12 +115,27 @@ export function IconButton(
       className={classList(["iconButton", props.className ?? ""])}
       content={
         <div className="centeredFlexColumn">
-          <Image src={props.pic} width={55} height={55} alt="" />
+          <Image src={props.pic} width={props.width ?? 55} height={props.height ?? 55} alt="" />
           <div className="caption">{props.caption}</div>
         </div>
       }
       onSelect={props.onSelect}
       isSelected={props.isSelected}
+    />
+  );
+}
+
+export function LaunchButton(props: { url: string; caption: string }) {
+  return (
+    <Button
+      onSelect={() => window.open(props.url, "_blank")}
+      isSelected={false}
+      content={
+        <div className="launchButton">
+          <div>{props.caption}</div>
+          <Image src={images.launch} width={20} height={20} alt="" />
+        </div>
+      }
     />
   );
 }

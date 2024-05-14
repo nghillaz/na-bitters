@@ -1,13 +1,11 @@
 import { useState } from "react";
-import {
-  IButtonProps,
-  IconButton,
-} from "../_components/button";
+import { IButtonProps, IconButton, LaunchButton } from "../_components/button";
 import { Filter } from "@/app/_components/filter";
 import { IIngredientContent, getContent } from "./content";
 import { Popup } from "../_components/popup";
 import { IContentProps, enumToList } from "../_components/_common";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import images from "../images/_index";
 import { IngredientFlavor, IngredientType, getFlavorName } from "./enums";
 import "./ingredients.css";
 
@@ -62,7 +60,31 @@ export function Ingredients(props: IContentProps) {
       </div>
       <Popup
         visible={!!selectedIngredient}
-        content={<div>{ingredientContent?.description}</div>}
+        content={
+          <div className="ingredientContent">
+            <div className="ingredientImage">
+              <Image
+                src={ingredientContent?.detailPic ?? images.ingredients}
+                alt=""
+                layout="fill"
+              />
+            </div>
+            <div className="ingredientDetails">
+              <div className="ingredientTitle">
+                {ingredientContent?.caption}
+              </div>
+              <div>
+                <div>Sources</div>
+                {ingredientContent?.herbCoLink ? (
+                  <LaunchButton
+                    caption="Herb Co"
+                    url={ingredientContent.herbCoLink}
+                  />
+                ) : null}
+              </div>
+            </div>
+          </div>
+        }
         onClose={() => setSelectedIngredient(null)}
       />
     </div>
@@ -75,7 +97,7 @@ function Ingredient(
   return (
     <IconButton
       caption={props.caption}
-      pic={props.pic}
+      pic={props.navPic}
       isSelected={props.isSelected}
       onSelect={props.onSelect}
     />

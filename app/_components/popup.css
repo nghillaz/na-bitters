@@ -47,12 +47,14 @@
     overflow: visible;
 
     > .popupContent {
+      padding: 5px;
+
       .closeButton {
         position: absolute;
         top: 0px;
         right: 0px;
-        height: 55px !important;
-        width: 55px !important;
+        height: 35px !important;
+        width: 35px !important;
         min-height: unset;
       }
     }
