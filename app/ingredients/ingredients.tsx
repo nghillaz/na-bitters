@@ -64,26 +64,22 @@ export function Ingredients(props: IContentProps) {
           <div className="ingredientContent">
             <div className="ingredientImage">
               <Image
+                className="actualImage"
                 src={ingredientContent?.detailPic ?? images.ingredients}
                 alt=""
                 layout="fill"
                 objectFit="contain"
               />
             </div>
-            <div className="ingredientDetails">
-              <div className="ingredientTitle">
-                {ingredientContent?.caption}
-              </div>
-              <div>
-                <div>Sources</div>
-                {ingredientContent?.herbCoLink ? (
-                  <LaunchButton
-                    caption="Herb Co"
-                    url={ingredientContent.herbCoLink}
-                  />
-                ) : null}
-              </div>
-            </div>
+            <div className="ingredientTitle">{ingredientContent?.caption}</div>
+            <div>{ingredientContent?.description}</div>
+            <div>Sources</div>
+            {ingredientContent?.herbCoLink ? (
+              <LaunchButton
+                caption="Herb Co"
+                url={ingredientContent.herbCoLink}
+              />
+            ) : null}
           </div>
         }
         onClose={() => setSelectedIngredient(null)}

@@ -15,29 +15,34 @@
 }
 
 .ingredientContent {
-  display: flex;
-  align-items: flex-start;
-  height: 100%;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  overflow-y: auto;
 
-  .ingredientImage {
-    position: relative;
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 50%;
-    max-height: 90%;
-    aspect-ratio: 1/1;
+  .ingredientTitle {
+    font-size: xx-large;
   }
 
-  .ingredientDetails {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  align-items: start;
+  flex-direction: row;
 
-    .ingredientTitle {
-      margin-right: 55px;
-      height: 55px;
-      font-size: large;
+  .ingredientImage {
+    float: left;
+    position: relative;
+    min-height: 35%;
+    max-height: 35%;
+    aspect-ratio: 1/1;
+    margin: 0 15px 15px 0;
+
+    .actualImage {
+      max-height: 100%;
+      max-width: 100%;
+      height: auto !important;
+      width: auto !important;
+      border: 1px solid black;
+      border-radius: 10px;
     }
   }
 }

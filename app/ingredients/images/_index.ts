@@ -1,6 +1,7 @@
 import orange from "./ingredients/orange.png";
 import grainsOfParadise from "./ingredients/grainsofparadise.png";
 import starAnise from "./ingredients/staranise.png";
+import starAniseDetail from "./ingredients/staranisedetail.png";
 import lemon from "./ingredients/lemon.png";
 import nutmeg from "./ingredients/nutmeg.png";
 import lime from "./ingredients/lime.png";
@@ -16,22 +17,23 @@ import redpepperflake from "./ingredients/redpepperflake.png";
 import cinnamon from "./ingredients/cinnamon.png";
 
 const index = {
-    orange,
-    grainsOfParadise,
-    starAnise,
-    lemon,
-    nutmeg,
-    lime,
-    grapefruit,
-    sichuanpepper,
-    coriander,
-    cardamom,
-    allspice,
-    angelicaroot,
-    blackpepper,
-    whitepepper,
-    redpepperflake,
-    cinnamon,
+  orange,
+  grainsOfParadise,
+  starAnise,
+  starAniseDetail,
+  lemon,
+  nutmeg,
+  lime,
+  grapefruit,
+  sichuanpepper,
+  coriander,
+  cardamom,
+  allspice,
+  angelicaroot,
+  blackpepper,
+  whitepepper,
+  redpepperflake,
+  cinnamon,
 };
 
 export default index;

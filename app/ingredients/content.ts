@@ -19,7 +19,9 @@ export function getContent(
       return {
         caption: "Star Anise",
         navPic: images.starAnise,
-        description: "star anise",
+        detailPic: images.starAniseDetail,
+        description:
+          "star anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anise",
       };
     case IngredientType.GrainsOfParadise:
       return {
@@ -101,7 +103,9 @@ export function getContent(
         caption: "Birch Barrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrk",
         navPic: images.cinnamon,
         detailPic: images.cinnamon,
+        description: "",
         herbCoLink: "https://www.herbco.com/p-699-birch-bark-cs.aspx",
+        flavors: [IngredientFlavor.Bitter],
       };
     default:
       return null;
