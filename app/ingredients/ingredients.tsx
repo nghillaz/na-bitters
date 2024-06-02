@@ -6,7 +6,7 @@ import { Popup } from "../_components/popup";
 import { IContentProps, enumToList } from "../_components/_common";
 import Image from "next/image";
 import images from "../images/_index";
-import { IngredientFlavor, IngredientType, getFlavorName } from "./enums";
+import { IngredientFlavor, IngredientType, getFlavorDetails } from "./enums";
 import "./ingredients.css";
 
 export function Ingredients(props: IContentProps) {
@@ -26,38 +26,18 @@ export function Ingredients(props: IContentProps) {
         <Filter
           prompt="Flavors"
           options={flavors.map((f) => {
-            return { name: getFlavorName(f), key: f };
+            return { name: getFlavorDetails(f).name, key: f };
           })}
           selections={flavorFilters ?? []}
           setSelections={setFlavorFilters}
         />
       </div>
-      <div className="ingredientsList">
-        {ingredientTypes.map((type) => {
-          const content = getContent(type);
-          if (!content) {
-            return null;
-          }
-          console.log("flavorFilters: " + flavorFilters);
-          console.log("contentFilters: " + content.flavors);
-          console.log(typeof flavorFilters?.[0]);
-          console.log(typeof content.flavors?.[0]);
-          if (
-            flavorFilters?.length &&
-            !content.flavors?.some((f) => flavorFilters.includes(f))
-          ) {
-            return null;
-          }
-          return (
-            <Ingredient
-              {...content}
-              isSelected={selectedIngredient === type}
-              onSelect={() => setSelectedIngredient(type)}
-              key={type}
-            />
-          );
-        })}
-      </div>
+      <IngredientList
+        ingredients={ingredientTypes}
+        flavorFilters={flavorFilters}
+        selectedIngredient={selectedIngredient}
+        setSelectedIngredient={setSelectedIngredient}
+      />
       <Popup
         visible={!!selectedIngredient}
         content={
@@ -72,7 +52,26 @@ export function Ingredients(props: IContentProps) {
               />
             </div>
             <div className="ingredientTitle">{ingredientContent?.caption}</div>
+            {ingredientContent?.flavors?.map((f) => {
+              const flavorDetails = getFlavorDetails(f);
+              return (
+                <div
+                  className="ingredientFlavor"
+                  key={flavorDetails.name}
+                  style={{ backgroundColor: flavorDetails.color }}
+                >
+                  {flavorDetails.name}
+                </div>
+              );
+            })}
             <div>{ingredientContent?.description}</div>
+            <div>Pairs With</div>
+            <IngredientList
+              ingredients={ingredientContent?.pairsWith}
+              setSelectedIngredient={setSelectedIngredient}
+              flavorFilters={null}
+              selectedIngredient={null}
+            />
             <div>Sources</div>
             {ingredientContent?.herbCoLink ? (
               <LaunchButton
@@ -84,6 +83,38 @@ export function Ingredients(props: IContentProps) {
         }
         onClose={() => setSelectedIngredient(null)}
       />
+    </div>
+  );
+}
+
+function IngredientList(props: {
+  ingredients: IngredientType[] | undefined;
+  flavorFilters: IngredientFlavor[] | null;
+  selectedIngredient: IngredientType | null;
+  setSelectedIngredient: Function;
+}) {
+  return (
+    <div className="ingredientsList">
+      {props.ingredients?.map((type) => {
+        const content = getContent(type);
+        if (!content) {
+          return null;
+        }
+        if (
+          props.flavorFilters?.length &&
+          !content.flavors?.some((f) => props.flavorFilters?.includes(f))
+        ) {
+          return null;
+        }
+        return (
+          <Ingredient
+            {...content}
+            isSelected={props.selectedIngredient === type}
+            onSelect={() => props.setSelectedIngredient(type)}
+            key={type}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -8,6 +8,7 @@ export interface IIngredientContent {
   detailPic?: StaticImageData;
   description?: string;
   flavors?: IngredientFlavor[];
+  pairsWith?: IngredientType[];
   herbCoLink?: string;
 }
 
@@ -22,6 +23,17 @@ export function getContent(
         detailPic: images.starAniseDetail,
         description:
           "star anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anise",
+        flavors: [IngredientFlavor.Licorice, IngredientFlavor.Bitter],
+        pairsWith: [
+          IngredientType.Allspice,
+          IngredientType.BlackPepper,
+          IngredientType.Cardamom,
+          IngredientType.Cinnamon,
+          IngredientType.Clove,
+          IngredientType.Coriander,
+          IngredientType.GrainsOfParadise,
+          IngredientType.Nutmeg,
+        ],
       };
     case IngredientType.GrainsOfParadise:
       return {

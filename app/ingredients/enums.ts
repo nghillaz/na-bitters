@@ -1,19 +1,37 @@
 enum IngredientCategory {}
 
-export function getFlavorName(flavor: IngredientFlavor) {
+export function getFlavorDetails(flavor: IngredientFlavor): {
+  name: string;
+  color: string;
+} {
   switch (flavor) {
     case IngredientFlavor.Bitter:
-      return "Bitterrrrrrrrrrrrrr";
+      return {
+        name: "Bitterrrrrrrrrrrrrr",
+        color: "black",
+      };
     case IngredientFlavor.Sweet:
-      return "Sweet";
+      return {
+        name: "Sweet",
+        color: "pink",
+      };
+    case IngredientFlavor.Licorice:
+      return {
+        name: "Licorice",
+        color: "brown",
+      };
     default:
-      return "<unknown flavor>";
+      return {
+        name: "<unknown flavor>",
+        color: "magenta",
+      };
   }
 }
 
 export enum IngredientFlavor {
   Bitter,
   Sweet,
+  Licorice,
 }
 
 export enum IngredientType {
