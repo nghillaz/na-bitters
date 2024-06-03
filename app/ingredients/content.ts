@@ -29,7 +29,7 @@ export function getContent(
         ],
         recommendations: [
           "Grind up slightly in a mortar and pestle before use to increase surface area and release seeds.",
-          'Use in combination with Allspice/Pepper/Cinnamon/Nutmeg when you want to add "warmth" or "christmas" to your flavor profile',
+          'Use in combination with Allspice/Pepper/Cinnamon/Clove/Nutmeg when you want to add "warmth" or "christmas" to your flavor profile',
         ],
         links: [
           {
@@ -73,6 +73,7 @@ export function getContent(
       return {
         caption: "Nutmeg",
         navPic: images.nutmeg,
+        detailPic: images.nutmegDetail,
       };
     case IngredientType.LimePeel:
       return {

@@ -31,7 +31,7 @@
     overflow: auto;
     flex-direction: column;
     margin: 30px;
-    height: calc(100vh - 60px);
+    height: calc(100% - 60px);
     width: calc(100vw - 60px);
     transition-property: opacity, top, left, right, bottom;
     transition-duration: 0.2s;

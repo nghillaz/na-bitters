@@ -4,6 +4,7 @@ import starAnise from "./ingredients/staranise.png";
 import starAniseDetail from "./ingredients/staranisedetail.png";
 import lemon from "./ingredients/lemon.png";
 import nutmeg from "./ingredients/nutmeg.png";
+import nutmegDetail from "./ingredients/nutmegdetail.png";
 import lime from "./ingredients/lime.png";
 import grapefruit from "./ingredients/grapefruit.png";
 import sichuanpepper from "./ingredients/sichuanpepper.png";
@@ -23,6 +24,7 @@ const index = {
   starAniseDetail,
   lemon,
   nutmeg,
+  nutmegDetail,
   lime,
   grapefruit,
   sichuanpepper,
