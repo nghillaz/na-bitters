@@ -69,13 +69,13 @@ export function Ingredients(props: IContentProps) {
                     {flavorDetails.name}
                   </div>
                 );
-              })}
+              }) ?? "<FLAVORS>"}
             </div>
             <div>
               <ul className="ingredientPoints">
                 {ingredientContent?.facts?.map((l) => (
                   <li key={l}>{l}</li>
-                ))}
+                )) ?? "<FACTS>"}
               </ul>
             </div>
             <div>
@@ -84,25 +84,26 @@ export function Ingredients(props: IContentProps) {
               <ul className="ingredientPoints">
                 {ingredientContent?.recommendations?.map((l) => (
                   <li key={l}>{l}</li>
-                ))}
+                )) ?? "<RECOMMENDATIONS>"}
               </ul>
             </div>
             <div>
               <h3>Pairs With</h3>
               <br />
+              {ingredientContent?.pairsWith ? 
               <IngredientList
                 ingredients={ingredientContent?.pairsWith}
                 setSelectedIngredient={setSelectedIngredient}
                 flavorFilters={null}
                 selectedIngredient={null}
-              />
+              /> : "<PAIRS WITH>"}
             </div>
             <div>
               <h3>Sources</h3>
               <br />
               {ingredientContent?.links?.map((l) => (
                 <LaunchButton key={l.caption} {...l} />
-              ))}
+              )) ?? "<SOURCES>"}
             </div>
           </div>
         }

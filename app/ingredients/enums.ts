@@ -36,24 +36,57 @@ export enum IngredientFlavor {
 
 export enum IngredientType {
   None,
-  StarAnise,
-  Nutmeg,
-  GrainsOfParadise,
-  OrangePeel,
-  LemonPeel,
-  LimePeel,
-  GrapefruitPeel,
-  Coriander,
-  Cardamom,
-  Allspice,
-  BlackPepper,
-  WhitePepper,
-  RedPepperFlake,
-  Cinnamon,
 
-  // Could use improvement
-  SichuanPepper,
-  AngelicaRoot,
+  // A
+  Allspice,
+  AngelicaRoot, // TODO - navImage
+
+  // B
+  // C
+  Cardamom,
+  Cinnamon,
+  Coriander,
+
+  // D
+  // E
+  // F
+  // G
+  GrainsOfParadise,
+  GrapefruitPeel,
+
+  // H
+  // I
+  // J
+  // K
+  // L
+  LemonPeel, // TODO
+  LimePeel,
+
+  // M
+  // N
+  Nutmeg,
+
+  // O
+  OrangePeel,
+
+  // P
+  BlackPepper,
+  RedPepperFlake,
+  WhitePepper,
+
+  // Q
+  // R
+  // S
+  SichuanPepper, // TODO
+  StarAnise,
+
+  // T
+  // U
+  // V
+  // W
+  // X
+  // Y
+  // Z
 
   // TODO
   ChicoryRoot,

@@ -18,6 +18,101 @@ export function getContent(
   type: IngredientType | null
 ): IIngredientContent | null {
   switch (type) {
+    // A
+    case IngredientType.Allspice:
+      return {
+        caption: "Allspice",
+        navPic: images.allspice,
+      };
+    case IngredientType.AngelicaRoot:
+      return {
+        caption: "Angelica Root",
+        navPic: images.angelicaroot,
+      };
+
+    // B
+    // C
+    case IngredientType.Cardamom:
+      return {
+        caption: "Cardamom",
+        navPic: images.cardamom,
+      };
+    case IngredientType.Cinnamon:
+      return {
+        caption: "Cinnamon",
+        navPic: images.cinnamon,
+      };
+    case IngredientType.Coriander:
+      return {
+        caption: "Coriander",
+        navPic: images.coriander,
+      };
+
+    // D
+    // E
+    // F
+    // G
+    case IngredientType.GrainsOfParadise:
+      return {
+        caption: "Grains of Paradise",
+        navPic: images.grainsOfParadise,
+      };
+    case IngredientType.GrapefruitPeel:
+      return {
+        caption: "Grapefruit Peel",
+        navPic: images.grapefruit,
+        flavors: [IngredientFlavor.Bitter],
+      };
+
+    // H
+    // I
+    // J
+    // K
+    // L
+    case IngredientType.LimePeel:
+      return {
+        caption: "Lime Peel",
+        navPic: images.lime,
+        flavors: [IngredientFlavor.Bitter],
+      };
+
+    // M
+    // N
+    case IngredientType.Nutmeg:
+      return {
+        caption: "Nutmeg",
+        navPic: images.nutmeg,
+        detailPic: images.nutmegDetail,
+      };
+
+    // O
+    case IngredientType.OrangePeel:
+      return {
+        caption: "Orange Peel",
+        navPic: images.orange,
+        flavors: [IngredientFlavor.Bitter],
+      };
+
+    // P
+    case IngredientType.BlackPepper:
+      return {
+        caption: "Black Pepper",
+        navPic: images.blackpepper,
+      };
+    case IngredientType.RedPepperFlake:
+      return {
+        caption: "Red Pepper Flakes",
+        navPic: images.redpepperflake,
+      };
+    case IngredientType.WhitePepper:
+      return {
+        caption: "White Pepper",
+        navPic: images.whitepepper,
+      };
+
+    // Q
+    // R
+    // S
     case IngredientType.StarAnise:
       return {
         caption: "Star Anise",
@@ -57,82 +152,6 @@ export function getContent(
           IngredientType.GrainsOfParadise,
           IngredientType.Nutmeg,
         ],
-      };
-    case IngredientType.GrainsOfParadise:
-      return {
-        caption: "Grains of Paradise",
-        navPic: images.grainsOfParadise,
-      };
-    case IngredientType.OrangePeel:
-      return {
-        caption: "Orange Peel",
-        navPic: images.orange,
-        flavors: [IngredientFlavor.Bitter],
-      };
-    case IngredientType.Nutmeg:
-      return {
-        caption: "Nutmeg",
-        navPic: images.nutmeg,
-        detailPic: images.nutmegDetail,
-      };
-    case IngredientType.LimePeel:
-      return {
-        caption: "Lime Peel",
-        navPic: images.lime,
-        flavors: [IngredientFlavor.Bitter],
-      };
-    case IngredientType.GrapefruitPeel:
-      return {
-        caption: "Grapefruit Peel",
-        navPic: images.grapefruit,
-        flavors: [IngredientFlavor.Bitter],
-      };
-    case IngredientType.Coriander:
-      return {
-        caption: "Coriander",
-        navPic: images.coriander,
-      };
-    case IngredientType.Cardamom:
-      return {
-        caption: "Cardamom",
-        navPic: images.cardamom,
-      };
-    case IngredientType.Allspice:
-      return {
-        caption: "Allspice",
-        navPic: images.allspice,
-      };
-    case IngredientType.AngelicaRoot:
-      return {
-        caption: "Angelica Root",
-        navPic: images.angelicaroot,
-      };
-    case IngredientType.BlackPepper:
-      return {
-        caption: "Black Pepper",
-        navPic: images.blackpepper,
-      };
-    case IngredientType.WhitePepper:
-      return {
-        caption: "White Pepper",
-        navPic: images.whitepepper,
-      };
-    case IngredientType.RedPepperFlake:
-      return {
-        caption: "Red Pepper Flakes",
-        navPic: images.redpepperflake,
-      };
-    case IngredientType.Cinnamon:
-      return {
-        caption: "Cinnamon",
-        navPic: images.cinnamon,
-      };
-    case IngredientType.BirchBark:
-      return {
-        caption: "Birch Barrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrk",
-        navPic: images.cinnamon,
-        detailPic: images.cinnamon,
-        flavors: [IngredientFlavor.Bitter],
       };
     default:
       return null;
