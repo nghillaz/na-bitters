@@ -42,6 +42,12 @@ export function Ingredients(props: IContentProps) {
         visible={!!selectedIngredient}
         content={
           <div className="ingredientContent">
+            <h1 className="ingredientTitle">
+              {ingredientContent?.caption ?? "<CAPTION>"}
+            </h1>
+            <div className="scientificName">
+              {ingredientContent?.scientificName ?? "<SCIENTIFIC NAME>"}
+            </div>
             <div className="ingredientImage">
               <Image
                 className="actualImage"
@@ -51,34 +57,53 @@ export function Ingredients(props: IContentProps) {
                 objectFit="contain"
               />
             </div>
-            <div className="ingredientTitle">{ingredientContent?.caption}</div>
-            {ingredientContent?.flavors?.map((f) => {
-              const flavorDetails = getFlavorDetails(f);
-              return (
-                <div
-                  className="ingredientFlavor"
-                  key={flavorDetails.name}
-                  style={{ backgroundColor: flavorDetails.color }}
-                >
-                  {flavorDetails.name}
-                </div>
-              );
-            })}
-            <div>{ingredientContent?.description}</div>
-            <div>Pairs With</div>
-            <IngredientList
-              ingredients={ingredientContent?.pairsWith}
-              setSelectedIngredient={setSelectedIngredient}
-              flavorFilters={null}
-              selectedIngredient={null}
-            />
-            <div>Sources</div>
-            {ingredientContent?.herbCoLink ? (
-              <LaunchButton
-                caption="Herb Co"
-                url={ingredientContent.herbCoLink}
+            <div>
+              {ingredientContent?.flavors?.map((f) => {
+                const flavorDetails = getFlavorDetails(f);
+                return (
+                  <div
+                    className="ingredientFlavor"
+                    key={flavorDetails.name}
+                    style={{ backgroundColor: flavorDetails.color }}
+                  >
+                    {flavorDetails.name}
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <ul className="ingredientPoints">
+                {ingredientContent?.facts?.map((l) => (
+                  <li key={l}>{l}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Recommendations</h3>
+              <br />
+              <ul className="ingredientPoints">
+                {ingredientContent?.recommendations?.map((l) => (
+                  <li key={l}>{l}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Pairs With</h3>
+              <br />
+              <IngredientList
+                ingredients={ingredientContent?.pairsWith}
+                setSelectedIngredient={setSelectedIngredient}
+                flavorFilters={null}
+                selectedIngredient={null}
               />
-            ) : null}
+            </div>
+            <div>
+              <h3>Sources</h3>
+              <br />
+              {ingredientContent?.links?.map((l) => (
+                <LaunchButton key={l.caption} {...l} />
+              ))}
+            </div>
           </div>
         }
         onClose={() => setSelectedIngredient(null)}

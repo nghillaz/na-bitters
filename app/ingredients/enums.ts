@@ -7,7 +7,7 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
   switch (flavor) {
     case IngredientFlavor.Bitter:
       return {
-        name: "Bitterrrrrrrrrrrrrr",
+        name: "Bitter",
         color: "black",
       };
     case IngredientFlavor.Sweet:
@@ -18,7 +18,7 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
     case IngredientFlavor.Licorice:
       return {
         name: "Licorice",
-        color: "brown",
+        color: "#1B1212",
       };
     default:
       return {

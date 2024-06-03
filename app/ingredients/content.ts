@@ -6,10 +6,12 @@ export interface IIngredientContent {
   caption: string;
   navPic: StaticImageData;
   detailPic?: StaticImageData;
-  description?: string;
+  scientificName?: string;
+  facts?: string[];
+  recommendations?: string[];
   flavors?: IngredientFlavor[];
   pairsWith?: IngredientType[];
-  herbCoLink?: string;
+  links?: { caption: string; url: string }[];
 }
 
 export function getContent(
@@ -21,9 +23,30 @@ export function getContent(
         caption: "Star Anise",
         navPic: images.starAnise,
         detailPic: images.starAniseDetail,
-        description:
-          "star anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anisestar anise star anise star anise star anise",
-        flavors: [IngredientFlavor.Licorice, IngredientFlavor.Bitter],
+        facts: [
+          "Contains Anethole, which gives anise and fennel their licorice flavor.",
+          'Commonly used in spice mixtures like Chinese Five-Spice, "Warming" Spice, and "Baking" Spice.',
+        ],
+        recommendations: [
+          "Grind up slightly in a mortar and pestle before use to increase surface area and release seeds.",
+          'Use in combination with Allspice/Pepper/Cinnamon/Nutmeg when you want to add "warmth" or "christmas" to your flavor profile',
+        ],
+        links: [
+          {
+            caption: "Herb Co",
+            url: "https://www.herbco.com/p-703-star-anise-whole.aspx",
+          },
+          {
+            caption: "Wikipedia",
+            url: "https://en.wikipedia.org/wiki/Illicium_verum",
+          },
+          {
+            caption: "Wikipedia (Anethole)",
+            url: "https://en.wikipedia.org/wiki/Anethole",
+          },
+        ],
+        scientificName: "Illicium verum",
+        flavors: [IngredientFlavor.Licorice, IngredientFlavor.Sweet],
         pairsWith: [
           IngredientType.Allspice,
           IngredientType.BlackPepper,
@@ -39,46 +62,39 @@ export function getContent(
       return {
         caption: "Grains of Paradise",
         navPic: images.grainsOfParadise,
-        description: "grains",
       };
     case IngredientType.OrangePeel:
       return {
         caption: "Orange Peel",
         navPic: images.orange,
-        description: "ora",
         flavors: [IngredientFlavor.Bitter],
       };
     case IngredientType.Nutmeg:
       return {
         caption: "Nutmeg",
         navPic: images.nutmeg,
-        description: "nutmeg",
       };
     case IngredientType.LimePeel:
       return {
         caption: "Lime Peel",
         navPic: images.lime,
-        description: "lime",
         flavors: [IngredientFlavor.Bitter],
       };
     case IngredientType.GrapefruitPeel:
       return {
         caption: "Grapefruit Peel",
         navPic: images.grapefruit,
-        description: "grapefruit",
         flavors: [IngredientFlavor.Bitter],
       };
     case IngredientType.Coriander:
       return {
         caption: "Coriander",
         navPic: images.coriander,
-        description: "coriander",
       };
     case IngredientType.Cardamom:
       return {
         caption: "Cardamom",
         navPic: images.cardamom,
-        description: "cardamom",
       };
     case IngredientType.Allspice:
       return {
@@ -115,8 +131,6 @@ export function getContent(
         caption: "Birch Barrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrk",
         navPic: images.cinnamon,
         detailPic: images.cinnamon,
-        description: "",
-        herbCoLink: "https://www.herbco.com/p-699-birch-bark-cs.aspx",
         flavors: [IngredientFlavor.Bitter],
       };
     default:

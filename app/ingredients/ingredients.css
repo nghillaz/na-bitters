@@ -20,8 +20,14 @@
   padding-right: 6px;
 
   .ingredientTitle {
-    font-size: xx-large;
-    margin-right: 40px;
+    margin: 0 40px 0 0;
+  }
+
+  .scientificName {
+    color: rgba(1, 1, 1, 0.75);
+    font-style: italic;
+    margin-top: -4px;
+    margin-bottom: 4px;
   }
 
   width: 100%;
@@ -30,7 +36,6 @@
   flex-direction: row;
 
   .ingredientImage {
-    float: left;
     position: relative;
     min-height: 35%;
     max-height: 35%;
@@ -45,6 +50,12 @@
       border: 1px solid black;
       border-radius: 10px;
     }
+  }
+
+  .ingredientPoints {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
   }
 }
 
