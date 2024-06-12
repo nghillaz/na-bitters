@@ -28,6 +28,13 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
   }
 }
 
+export enum IngredientSafety {
+  Safe,
+  Caution,
+  Danger,
+}
+
+
 export enum IngredientFlavor {
   Bitter,
   Sweet,

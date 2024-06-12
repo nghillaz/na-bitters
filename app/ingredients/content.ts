@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image";
 import images from "./images/_index";
-import { IngredientFlavor, IngredientType } from "./enums";
+import { IngredientFlavor, IngredientSafety, IngredientType } from "./enums";
 
 export interface IIngredientContent {
   caption: string;
@@ -12,6 +12,7 @@ export interface IIngredientContent {
   flavors?: IngredientFlavor[];
   pairsWith?: IngredientType[];
   links?: { caption: string; url: string }[];
+  safety?: IngredientSafety;
 }
 
 export function getContent(
@@ -83,6 +84,7 @@ export function getContent(
         caption: "Nutmeg",
         navPic: images.nutmeg,
         detailPic: images.nutmegDetail,
+        safety: IngredientSafety.Caution,
       };
 
     // O
@@ -118,6 +120,7 @@ export function getContent(
         caption: "Star Anise",
         navPic: images.starAnise,
         detailPic: images.starAniseDetail,
+        safety: IngredientSafety.Safe,
         facts: [
           "Contains Anethole, which gives anise and fennel their licorice flavor.",
           'Commonly used in spice mixtures like Chinese Five-Spice, "Warming" Spice, and "Baking" Spice.',

@@ -3,10 +3,10 @@ import { IButtonProps, IconButton, LaunchButton } from "../_components/button";
 import { Filter } from "@/app/_components/filter";
 import { IIngredientContent, getContent } from "./content";
 import { Popup } from "../_components/popup";
-import { IContentProps, enumToList } from "../_components/_common";
+import { IContentProps, classList, enumToList } from "../_components/_common";
 import Image from "next/image";
 import images from "../images/_index";
-import { IngredientFlavor, IngredientType, getFlavorDetails } from "./enums";
+import { IngredientFlavor, IngredientSafety, IngredientType, getFlavorDetails } from "./enums";
 import "./ingredients.css";
 
 export function Ingredients(props: IContentProps) {
@@ -90,13 +90,13 @@ export function Ingredients(props: IContentProps) {
             <div>
               <h3>Pairs With</h3>
               <br />
-              {ingredientContent?.pairsWith ? 
-              <IngredientList
-                ingredients={ingredientContent?.pairsWith}
-                setSelectedIngredient={setSelectedIngredient}
-                flavorFilters={null}
-                selectedIngredient={null}
-              /> : "<PAIRS WITH>"}
+              {ingredientContent?.pairsWith ?
+                <IngredientList
+                  ingredients={ingredientContent?.pairsWith}
+                  setSelectedIngredient={setSelectedIngredient}
+                  flavorFilters={null}
+                  selectedIngredient={null}
+                /> : "<PAIRS WITH>"}
             </div>
             <div>
               <h3>Sources</h3>
@@ -149,11 +149,18 @@ function Ingredient(
   props: IIngredientContent & Pick<IButtonProps, "isSelected" | "onSelect">
 ) {
   return (
-    <IconButton
-      caption={props.caption}
-      pic={props.navPic}
-      isSelected={props.isSelected}
-      onSelect={props.onSelect}
-    />
+    <>
+      <IconButton
+        caption={props.caption}
+        pic={props.navPic}
+        isSelected={props.isSelected}
+        onSelect={props.onSelect}
+        className={classList([
+          "ingredientSafetyIcon",
+          props.safety === IngredientSafety.Safe ? "safe" : "",
+          props.safety === IngredientSafety.Caution ? "caution" : "",
+          props.safety === IngredientSafety.Danger ? "danger" : "",
+        ])} />
+    </>
   );
 }

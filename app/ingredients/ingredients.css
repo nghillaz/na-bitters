@@ -71,3 +71,25 @@
     0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black,
     0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
+
+.ingredientSafetyIcon {
+  &::before {
+    position: absolute;
+    content: '';
+    left: calc(100% - 17px);
+    width: 17px;
+    height: 17px;
+    border-bottom-left-radius: 10px;
+    outline-width: 1px;
+  }
+
+  &.caution::before {
+    background-color: rgb(255, 238, 0);
+    outline-style: solid;
+  }
+
+  &.danger::before {
+    background-color: rgb(255, 0, 0);
+    outline-style: solid;
+  }
+}
