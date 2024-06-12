@@ -9,7 +9,7 @@ import {
 } from "react";
 import { isMobile } from "react-device-detect";
 import images from "../images/_index";
-import "./button.css";
+import "./button.scss";
 
 export interface IButtonProps {
   content: JSX.Element;

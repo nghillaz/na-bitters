@@ -7,7 +7,7 @@ import { IContentProps, classList, enumToList } from "../_components/_common";
 import Image from "next/image";
 import images from "../images/_index";
 import { IngredientFlavor, IngredientSafety, IngredientType, getFlavorDetails } from "./enums";
-import "./ingredients.css";
+import "./ingredients.scss";
 
 export function Ingredients(props: IContentProps) {
   const [selectedIngredient, setSelectedIngredient] =
@@ -74,8 +74,8 @@ export function Ingredients(props: IContentProps) {
                 }) ?? "<FLAVORS>"}
               </div>
               <IngredientBulletPoints title="" points={ingredientContent.facts} />
-              <IngredientBulletPoints title="Safety" points={ingredientContent.safety?.details} safetyLevel={ingredientContent.safety?.level} />
               <IngredientBulletPoints title="Recommendations" points={ingredientContent.recommendations} />
+              <IngredientBulletPoints title="Safety" points={ingredientContent.safety?.details} safetyLevel={ingredientContent.safety?.level} />
               {ingredientContent.pairsWith?.length ?
                 <div>
                   <h3>Pairs With</h3>

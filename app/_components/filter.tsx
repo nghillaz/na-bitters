@@ -1,15 +1,13 @@
 import {
   KeyboardEventHandler,
   MouseEventHandler,
-  useCallback,
-  useEffect,
   useRef,
   useState,
 } from "react";
 import Image from "next/image";
 import images from "../images/_index";
 import { classList } from "./_common";
-import "./filter.css";
+import "./filter.scss";
 import { Button } from "./button";
 
 export function Filter(props: {

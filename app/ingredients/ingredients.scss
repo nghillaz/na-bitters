@@ -1,3 +1,6 @@
+$cautionYellow: rgb(255, 208, 0);
+$dangerRed: red;
+
 .ingredients {
   height: 100%;
   width: 100%;
@@ -56,8 +59,14 @@
     display: inline-block;
     
     &.danger {
-      box-shadow: 1px 1px 2px 2px red;
-      border-left: solid red 10px;
+      box-shadow: 1px 1px 2px 2px $dangerRed;
+      border-left: solid $dangerRed 10px;
+      border-radius: 10px;
+    }
+
+    &.caution {
+      box-shadow: 1px 1px 2px 2px $cautionYellow;
+      border-left: solid $cautionYellow 10px;
       border-radius: 10px;
     }
 
@@ -94,12 +103,12 @@
   }
 
   &.caution::before {
-    background-color: rgb(255, 238, 0);
+    background-color: $cautionYellow;
     outline-style: solid;
   }
 
   &.danger::before {
-    background-color: rgb(255, 0, 0);
+    background-color: $dangerRed;
     outline-style: solid;
   }
 }

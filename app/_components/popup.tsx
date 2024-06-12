@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { classList } from "./_common";
-import { Button, IconButton } from "./button";
-import Image from "next/image";
+import { IconButton } from "./button";
 import images from "../images/_index";
-import "./popup.css";
+import "./popup.scss";
 
 export function Popup(props: {
   visible: boolean;
@@ -46,5 +45,5 @@ export function Popup(props: {
 }
 
 function CloseButton(props: { onClick: Function }) {
-  return <IconButton pic={images.close} onSelect={props.onClick} className="closeButton" isSelected={false} width={35} height={35}/>;
+  return <IconButton pic={images.close} onSelect={props.onClick} className="closeButton" isSelected={false} width={35} height={35} />;
 }

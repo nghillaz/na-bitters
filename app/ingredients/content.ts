@@ -71,7 +71,7 @@ export function getContent(
           'Contains Cyclopentadecanolide, a synthetic musk often used in perfume',
         ],
         safety: {
-          level: IngredientSafety.Danger, details: [
+          level: IngredientSafety.Caution, details: [
             'Do not consume during pregnancy.',
             'Do not consume if you take anticoagulant medications due to a risk of uncontrolled bleeding.',
             'Furanocoumarins may increase photosensitivity to UV radiation.',
