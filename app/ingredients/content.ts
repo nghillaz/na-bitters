@@ -13,6 +13,7 @@ export interface IIngredientContent {
   pairsWith?: IngredientType[];
   links?: { caption: string; url: string }[];
   safety?: IngredientSafety;
+  isFinished?: boolean;
 }
 
 export function getContent(
@@ -22,8 +23,44 @@ export function getContent(
     // A
     case IngredientType.Allspice:
       return {
+        isFinished: true,
         caption: "Allspice",
         navPic: images.allspice,
+        safety: IngredientSafety.Safe,
+        facts: [
+          'Contains Eugenol, which gives the clove-like flavor to clove, nutmeg, cinnamon, basil, and bay leaf',
+          "The \"all\" in its name is due to tasting like a combination of cinnamon, nutmeg, and clove",
+        ],
+        recommendations: [
+          "Crack in a mortar and pestle before use to increase surface area and allow access to the aromatic internals.",
+          'Use in combination with Star Anise/Pepper/Cinnamon/Clove/Nutmeg when you want to add "warmth" or "christmas" to your flavor profile',
+        ],
+        links: [
+          {
+            caption: "Herb Co",
+            url: "https://www.herbco.com/p-1284-allspice-whole.aspx",
+          },
+          {
+            caption: "Wikipedia",
+            url: "https://en.wikipedia.org/wiki/Allspice",
+          },
+          {
+            caption: "Wikipedia (Eugenol)",
+            url: "https://en.wikipedia.org/wiki/Eugenol",
+          },
+        ],
+        scientificName: "Pimenta dioica",
+        flavors: [IngredientFlavor.Warming],
+        pairsWith: [
+          IngredientType.StarAnise,
+          IngredientType.BlackPepper,
+          IngredientType.Cardamom,
+          IngredientType.Cinnamon,
+          IngredientType.Clove,
+          IngredientType.Coriander,
+          IngredientType.GrainsOfParadise,
+          IngredientType.Nutmeg,
+        ],
       };
     case IngredientType.AngelicaRoot:
       return {
@@ -117,6 +154,7 @@ export function getContent(
     // S
     case IngredientType.StarAnise:
       return {
+        isFinished: true,
         caption: "Star Anise",
         navPic: images.starAnise,
         detailPic: images.starAniseDetail,

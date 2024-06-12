@@ -17,7 +17,8 @@ export function Ingredients(props: IContentProps) {
   );
 
   const ingredientContent = getContent(selectedIngredient);
-  const ingredientTypes = enumToList<IngredientType>(IngredientType);
+  // TODO - this is inefficient. Remove at some point
+  const ingredientTypes = enumToList<IngredientType>(IngredientType).filter(f => getContent(f)?.isFinished);
   const flavors = enumToList<IngredientFlavor>(IngredientFlavor);
 
   return (
@@ -41,24 +42,25 @@ export function Ingredients(props: IContentProps) {
       <Popup
         visible={!!selectedIngredient}
         content={
+          ingredientContent ? 
           <div className="ingredientContent">
             <h1 className="ingredientTitle">
-              {ingredientContent?.caption ?? "<CAPTION>"}
+              {ingredientContent.caption ?? "<CAPTION>"}
             </h1>
             <div className="scientificName">
-              {ingredientContent?.scientificName ?? "<SCIENTIFIC NAME>"}
+              {ingredientContent.scientificName ?? "<SCIENTIFIC NAME>"}
             </div>
             <div className="ingredientImage">
               <Image
                 className="actualImage"
-                src={ingredientContent?.detailPic ?? images.ingredients}
+                src={ingredientContent.detailPic ?? images.ingredients}
                 alt=""
                 layout="fill"
                 objectFit="contain"
               />
             </div>
             <div>
-              {ingredientContent?.flavors?.map((f) => {
+              {ingredientContent.flavors?.map((f) => {
                 const flavorDetails = getFlavorDetails(f);
                 return (
                   <div
@@ -73,7 +75,7 @@ export function Ingredients(props: IContentProps) {
             </div>
             <div>
               <ul className="ingredientPoints">
-                {ingredientContent?.facts?.map((l) => (
+                {ingredientContent.facts?.map((l) => (
                   <li key={l}>{l}</li>
                 )) ?? "<FACTS>"}
               </ul>
@@ -82,7 +84,7 @@ export function Ingredients(props: IContentProps) {
               <h3>Recommendations</h3>
               <br />
               <ul className="ingredientPoints">
-                {ingredientContent?.recommendations?.map((l) => (
+                {ingredientContent.recommendations?.map((l) => (
                   <li key={l}>{l}</li>
                 )) ?? "<RECOMMENDATIONS>"}
               </ul>
@@ -90,9 +92,9 @@ export function Ingredients(props: IContentProps) {
             <div>
               <h3>Pairs With</h3>
               <br />
-              {ingredientContent?.pairsWith ?
+              {ingredientContent.pairsWith ?
                 <IngredientList
-                  ingredients={ingredientContent?.pairsWith}
+                  ingredients={ingredientContent.pairsWith}
                   setSelectedIngredient={setSelectedIngredient}
                   flavorFilters={null}
                   selectedIngredient={null}
@@ -101,11 +103,11 @@ export function Ingredients(props: IContentProps) {
             <div>
               <h3>Sources</h3>
               <br />
-              {ingredientContent?.links?.map((l) => (
+              {ingredientContent.links?.map((l) => (
                 <LaunchButton key={l.caption} {...l} />
               )) ?? "<SOURCES>"}
             </div>
-          </div>
+          </div> : <></>
         }
         onClose={() => setSelectedIngredient(null)}
       />

@@ -1,4 +1,4 @@
-enum IngredientCategory {}
+enum IngredientCategory { }
 
 export function getFlavorDetails(flavor: IngredientFlavor): {
   name: string;
@@ -20,6 +20,11 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
         name: "Licorice",
         color: "#1B1212",
       };
+      case IngredientFlavor.Warming:
+        return  {
+          name: "Warming",
+          color: "#D47E30"
+        }
     default:
       return {
         name: "<unknown flavor>",
@@ -39,6 +44,7 @@ export enum IngredientFlavor {
   Bitter,
   Sweet,
   Licorice,
+  Warming,
 }
 
 export enum IngredientType {
