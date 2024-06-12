@@ -57,24 +57,53 @@ $dangerRed: red;
 
   .ingredientPointsContainer {
     display: inline-block;
-    
-    &.danger {
-      box-shadow: 1px 1px 2px 2px $dangerRed;
-      border-left: solid $dangerRed 10px;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 10px;
+
+    ul {
+      padding: 5px 10px 5px 30px;
+      margin: 0;
+      margin-left: -5px;
       border-radius: 10px;
+      border-top-left-radius: 0;
+    }
+
+    &.danger,
+    &.caution {
+      .ingredientPointsTitle {
+        padding: 5px 10px;
+        margin: 0 0 0 -5px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom: none;
+      }
+
+      ul {
+        border: 1px solid;
+      }
+    }
+
+    &.danger {
+      .ingredientPointsTitle {
+        background-color: $dangerRed;
+      }
+
+      ul {
+        background-color: fade-out($color: $dangerRed, $amount: .8);
+        border-color: $dangerRed;
+      }
     }
 
     &.caution {
-      box-shadow: 1px 1px 2px 2px $cautionYellow;
-      border-left: solid $cautionYellow 10px;
-      border-radius: 10px;
-    }
+      .ingredientPointsTitle {
+        background-color: $cautionYellow;
+      }
 
-    .ingredientPoints {
-      display: flex;
-      flex-direction: column;
-      padding-right: 5px;
-      margin-left: -15px;
+      ul {
+        background-color: fade-out($color: $cautionYellow, $amount: .8);
+        border-color: $cautionYellow;
+      }
     }
   }
 }

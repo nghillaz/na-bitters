@@ -73,7 +73,7 @@ export function Ingredients(props: IContentProps) {
                   );
                 }) ?? "<FLAVORS>"}
               </div>
-              <IngredientBulletPoints title="" points={ingredientContent.facts} />
+              <IngredientBulletPoints title="About" points={ingredientContent.facts} />
               <IngredientBulletPoints title="Recommendations" points={ingredientContent.recommendations} />
               <IngredientBulletPoints title="Safety" points={ingredientContent.safety?.details} safetyLevel={ingredientContent.safety?.level} />
               {ingredientContent.pairsWith?.length ?
