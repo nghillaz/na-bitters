@@ -9,7 +9,8 @@ import lime from "./ingredients/lime.png";
 import grapefruit from "./ingredients/grapefruit.png";
 import sichuanpepper from "./ingredients/sichuanpepper.png";
 import coriander from "./ingredients/coriander.png";
-import cardamom from "./ingredients/cardamom.png";
+import cardamomgreen from "./ingredients/cardamomgreen.png";
+import cardamomblack from "./ingredients/cardamomblack.png";
 import allspice from "./ingredients/allspice.png";
 import angelicaroot from "./ingredients/angelicaroot.png";
 import blackpepper from "./ingredients/blackpepper.png";
@@ -29,7 +30,8 @@ const index = {
   grapefruit,
   sichuanpepper,
   coriander,
-  cardamom,
+  cardamomgreen,
+  cardamomblack,
   allspice,
   angelicaroot,
   blackpepper,

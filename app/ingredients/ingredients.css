@@ -52,11 +52,21 @@
     }
   }
 
-  .ingredientPoints {
-    display: flex;
-    flex-direction: column;
-    padding-right: 5px;
-    margin-left: -15px;
+  .ingredientPointsContainer {
+    display: inline-block;
+    
+    &.danger {
+      box-shadow: 1px 1px 2px 2px red;
+      border-left: solid red 10px;
+      border-radius: 10px;
+    }
+
+    .ingredientPoints {
+      display: flex;
+      flex-direction: column;
+      padding-right: 5px;
+      margin-left: -15px;
+    }
   }
 }
 

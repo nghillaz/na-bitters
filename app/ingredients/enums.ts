@@ -20,11 +20,21 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
         name: "Licorice",
         color: "#1B1212",
       };
-      case IngredientFlavor.Warming:
-        return  {
-          name: "Warming",
-          color: "#D47E30"
-        }
+    case IngredientFlavor.Warming:
+      return {
+        name: "Warming",
+        color: "#D47E30"
+      }
+    case IngredientFlavor.Earth:
+      return {
+        name: "Earth",
+        color: "#806043"
+      }
+    case IngredientFlavor.Musk:
+      return {
+        name: "Musk",
+        color: "#CCA195",
+      }
     default:
       return {
         name: "<unknown flavor>",
@@ -45,6 +55,9 @@ export enum IngredientFlavor {
   Sweet,
   Licorice,
   Warming,
+  Earth,
+  Musk,
+  Smoke,
 }
 
 export enum IngredientType {
@@ -56,7 +69,8 @@ export enum IngredientType {
 
   // B
   // C
-  Cardamom,
+  CardamomBlack,
+  CardamomGreen,
   Cinnamon,
   Coriander,
 

@@ -12,7 +12,7 @@ export interface IIngredientContent {
   flavors?: IngredientFlavor[];
   pairsWith?: IngredientType[];
   links?: { caption: string; url: string }[];
-  safety?: IngredientSafety;
+  safety?: { level: IngredientSafety, details?: string[] };
   isFinished?: boolean;
 }
 
@@ -26,7 +26,7 @@ export function getContent(
         isFinished: true,
         caption: "Allspice",
         navPic: images.allspice,
-        safety: IngredientSafety.Safe,
+        safety: { level: IngredientSafety.Safe },
         facts: [
           'Contains Eugenol, which gives the clove-like flavor to clove, nutmeg, cinnamon, basil, and bay leaf',
           "The \"all\" in its name is due to tasting like a combination of cinnamon, nutmeg, and clove",
@@ -54,7 +54,7 @@ export function getContent(
         pairsWith: [
           IngredientType.StarAnise,
           IngredientType.BlackPepper,
-          IngredientType.Cardamom,
+          IngredientType.CardamomGreen,
           IngredientType.Cinnamon,
           IngredientType.Clove,
           IngredientType.Coriander,
@@ -66,14 +66,72 @@ export function getContent(
       return {
         caption: "Angelica Root",
         navPic: images.angelicaroot,
+        isFinished: true,
+        facts: [
+          'Contains Cyclopentadecanolide, a synthetic musk often used in perfume',
+        ],
+        safety: {
+          level: IngredientSafety.Danger, details: [
+            'Do not consume during pregnancy.',
+            'Do not consume if you take anticoagulant medications due to a risk of uncontrolled bleeding.',
+            'Furanocoumarins may increase photosensitivity to UV radiation.',
+          ]
+        },
+        links: [
+          {
+            caption: "Herb Co",
+            url: "https://www.herbco.com/p-1280-angelica-root-cs.aspx",
+          },
+          {
+            caption: "Wikipedia (Cyclopentadecanolide)",
+            url: "https://en.wikipedia.org/wiki/Cyclopentadecanolide",
+          },
+        ],
+        scientificName: "Angelica archangelica",
+        flavors: [IngredientFlavor.Earth, IngredientFlavor.Musk],
+        pairsWith: [
+          // TODO
+        ],
       };
 
     // B
     // C
-    case IngredientType.Cardamom:
+    case IngredientType.CardamomBlack:
       return {
-        caption: "Cardamom",
-        navPic: images.cardamom,
+        caption: "Cardamom, Black",
+        navPic: images.cardamomblack,
+        isFinished: true,
+        scientificName: "Amomum subulatum",
+        facts: [
+        ],
+        safety: {
+          level: IngredientSafety.Safe
+        },
+        links: [
+          {
+            caption: "Mountain Rose Herbs",
+            url: "https://mountainroseherbs.com/black-cardamom-pods",
+          }
+        ],
+        flavors: [IngredientFlavor.Smoke],
+      };
+    case IngredientType.CardamomGreen:
+      return {
+        caption: "Cardamom, Green",
+        navPic: images.cardamomgreen,
+        isFinished: true,
+        facts: [
+
+        ],
+        safety: {
+          level: IngredientSafety.Safe
+        },
+        links: [
+          {
+            caption: "Herb Co",
+            url: "https://www.herbco.com/p-331-cardamom-green-pods-whole.aspx",
+          }
+        ]
       };
     case IngredientType.Cinnamon:
       return {
@@ -121,7 +179,6 @@ export function getContent(
         caption: "Nutmeg",
         navPic: images.nutmeg,
         detailPic: images.nutmegDetail,
-        safety: IngredientSafety.Caution,
       };
 
     // O
@@ -158,7 +215,7 @@ export function getContent(
         caption: "Star Anise",
         navPic: images.starAnise,
         detailPic: images.starAniseDetail,
-        safety: IngredientSafety.Safe,
+        safety: { level: IngredientSafety.Safe },
         facts: [
           "Contains Anethole, which gives anise and fennel their licorice flavor.",
           'Commonly used in spice mixtures like Chinese Five-Spice, "Warming" Spice, and "Baking" Spice.',
@@ -186,7 +243,7 @@ export function getContent(
         pairsWith: [
           IngredientType.Allspice,
           IngredientType.BlackPepper,
-          IngredientType.Cardamom,
+          IngredientType.CardamomGreen,
           IngredientType.Cinnamon,
           IngredientType.Clove,
           IngredientType.Coriander,

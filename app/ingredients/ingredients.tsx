@@ -42,77 +42,85 @@ export function Ingredients(props: IContentProps) {
       <Popup
         visible={!!selectedIngredient}
         content={
-          ingredientContent ? 
-          <div className="ingredientContent">
-            <h1 className="ingredientTitle">
-              {ingredientContent.caption ?? "<CAPTION>"}
-            </h1>
-            <div className="scientificName">
-              {ingredientContent.scientificName ?? "<SCIENTIFIC NAME>"}
-            </div>
-            <div className="ingredientImage">
-              <Image
-                className="actualImage"
-                src={ingredientContent.detailPic ?? images.ingredients}
-                alt=""
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              {ingredientContent.flavors?.map((f) => {
-                const flavorDetails = getFlavorDetails(f);
-                return (
-                  <div
-                    className="ingredientFlavor"
-                    key={flavorDetails.name}
-                    style={{ backgroundColor: flavorDetails.color }}
-                  >
-                    {flavorDetails.name}
-                  </div>
-                );
-              }) ?? "<FLAVORS>"}
-            </div>
-            <div>
-              <ul className="ingredientPoints">
-                {ingredientContent.facts?.map((l) => (
-                  <li key={l}>{l}</li>
-                )) ?? "<FACTS>"}
-              </ul>
-            </div>
-            <div>
-              <h3>Recommendations</h3>
-              <br />
-              <ul className="ingredientPoints">
-                {ingredientContent.recommendations?.map((l) => (
-                  <li key={l}>{l}</li>
-                )) ?? "<RECOMMENDATIONS>"}
-              </ul>
-            </div>
-            <div>
-              <h3>Pairs With</h3>
-              <br />
-              {ingredientContent.pairsWith ?
-                <IngredientList
-                  ingredients={ingredientContent.pairsWith}
-                  setSelectedIngredient={setSelectedIngredient}
-                  flavorFilters={null}
-                  selectedIngredient={null}
-                /> : "<PAIRS WITH>"}
-            </div>
-            <div>
-              <h3>Sources</h3>
-              <br />
-              {ingredientContent.links?.map((l) => (
-                <LaunchButton key={l.caption} {...l} />
-              )) ?? "<SOURCES>"}
-            </div>
-          </div> : <></>
+          ingredientContent ?
+            <div className="ingredientContent">
+              <h1 className="ingredientTitle">
+                {ingredientContent.caption ?? "<CAPTION>"}
+              </h1>
+              <div className="scientificName">
+                {ingredientContent.scientificName ?? "<SCIENTIFIC NAME>"}
+              </div>
+              <div className="ingredientImage">
+                <Image
+                  className="actualImage"
+                  src={ingredientContent.detailPic ?? images.ingredients}
+                  alt=""
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <div>
+                {ingredientContent.flavors?.map((f) => {
+                  const flavorDetails = getFlavorDetails(f);
+                  return (
+                    <div
+                      className="ingredientFlavor"
+                      key={flavorDetails.name}
+                      style={{ backgroundColor: flavorDetails.color }}
+                    >
+                      {flavorDetails.name}
+                    </div>
+                  );
+                }) ?? "<FLAVORS>"}
+              </div>
+              <IngredientBulletPoints title="" points={ingredientContent.facts} />
+              <IngredientBulletPoints title="Safety" points={ingredientContent.safety?.details} safetyLevel={ingredientContent.safety?.level} />
+              <IngredientBulletPoints title="Recommendations" points={ingredientContent.recommendations} />
+              {ingredientContent.pairsWith?.length ?
+                <div>
+                  <h3>Pairs With</h3>
+                  <br />
+                  {ingredientContent.pairsWith?.length ?
+                    <IngredientList
+                      ingredients={ingredientContent.pairsWith}
+                      setSelectedIngredient={setSelectedIngredient}
+                      flavorFilters={null}
+                      selectedIngredient={null}
+                    /> : "<PAIRS WITH>"}
+                </div> : null}
+              <div>
+                <h3>Sources</h3>
+                <br />
+                {ingredientContent.links?.map((l) => (
+                  <LaunchButton key={l.caption} {...l} />
+                )) ?? "<SOURCES>"}
+              </div>
+            </div> : <></>
         }
         onClose={() => setSelectedIngredient(null)}
       />
     </div>
   );
+}
+
+function IngredientBulletPoints(props: {
+  title: string | undefined;
+  points: string[] | undefined;
+  safetyLevel?: IngredientSafety;
+}) {
+  return props.points?.length ? <>
+    <div className={classList([
+      "ingredientPointsContainer",
+      getSafetyLevelClassName(props.safetyLevel),
+    ])}>
+      {props.title ? <h3 className="ingredientPointsTitle">{props.title}</h3> : null}
+      <br />
+      <ul className="ingredientPoints">
+        {props.points.map((p) => (
+          <li key={p}>{p}</li>
+        )) ?? "<EMPTY>"}
+      </ul>
+    </div><br /></> : <></>
 }
 
 function IngredientList(props: {
@@ -159,10 +167,20 @@ function Ingredient(
         onSelect={props.onSelect}
         className={classList([
           "ingredientSafetyIcon",
-          props.safety === IngredientSafety.Safe ? "safe" : "",
-          props.safety === IngredientSafety.Caution ? "caution" : "",
-          props.safety === IngredientSafety.Danger ? "danger" : "",
+          getSafetyLevelClassName(props.safety?.level),
         ])} />
     </>
   );
+}
+
+function getSafetyLevelClassName(level: IngredientSafety | undefined) {
+  switch (level) {
+    case IngredientSafety.Safe:
+      return "safe";
+    case IngredientSafety.Caution:
+      return "caution";
+    case IngredientSafety.Danger:
+      return "danger";
+  }
+  return "";
 }
