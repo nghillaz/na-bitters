@@ -18,7 +18,7 @@ export function Ingredients(props: IContentProps) {
 
   const ingredientContent = getContent(selectedIngredient);
   // TODO - this is inefficient. Remove at some point
-  const ingredientTypes = enumToList<IngredientType>(IngredientType).filter(f => getContent(f)?.isFinished);
+  const ingredientTypes = enumToList<IngredientType>(IngredientType).filter(f => getContent(f)?.isFinished || getContent(f)?.showForTesting);
   const flavors = enumToList<IngredientFlavor>(IngredientFlavor);
 
   return (
@@ -76,8 +76,8 @@ export function Ingredients(props: IContentProps) {
               <IngredientBulletPoints title="About" points={ingredientContent.facts} />
               <IngredientBulletPoints title="Recommendations" points={ingredientContent.recommendations} />
               <IngredientBulletPoints title="Safety" points={ingredientContent.safety?.details} safetyLevel={ingredientContent.safety?.level} />
-              {ingredientContent.pairsWith?.length ?
-                <div>
+              {ingredientContent.pairsWith?.length ? <>
+                <div className="ingredientPointsContainer">
                   <h3>Pairs With</h3>
                   <br />
                   {ingredientContent.pairsWith?.length ?
@@ -87,8 +87,10 @@ export function Ingredients(props: IContentProps) {
                       flavorFilters={null}
                       selectedIngredient={null}
                     /> : "<PAIRS WITH>"}
-                </div> : null}
-              <div>
+                </div>
+                <br />
+              </> : null}
+              <div className="ingredientPointsContainer">
                 <h3>Sources</h3>
                 <br />
                 {ingredientContent.links?.map((l) => (

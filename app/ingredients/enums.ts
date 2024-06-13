@@ -35,6 +35,16 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
         name: "Musk",
         color: "#CCA195",
       }
+    case IngredientFlavor.Smoke:
+      return {
+        name: "Smoke",
+        color: "#C9D0D2"
+      }
+    case IngredientFlavor.Camphor:
+      return {
+        name: "Camphor",
+        color: "white",
+      }
     default:
       return {
         name: "<unknown flavor>",
@@ -58,6 +68,7 @@ export enum IngredientFlavor {
   Earth,
   Musk,
   Smoke,
+  Camphor,
 }
 
 export enum IngredientType {
@@ -69,7 +80,7 @@ export enum IngredientType {
 
   // B
   // C
-  CardamomBlack,
+  CardamomTsaoko,
   CardamomGreen,
   Cinnamon,
   Coriander,
@@ -100,6 +111,7 @@ export enum IngredientType {
   BlackPepper,
   RedPepperFlake,
   WhitePepper,
+  Patchouli,
 
   // Q
   // R
@@ -116,6 +128,8 @@ export enum IngredientType {
   // Z
 
   // TODO
+  Ginger,
+  CardamomBlack,
   ChicoryRoot,
   Clove,
   Lemongrass,

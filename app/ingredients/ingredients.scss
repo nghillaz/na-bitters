@@ -58,7 +58,6 @@ $dangerRed: red;
   .ingredientPointsContainer {
     display: inline-block;
     position: relative;
-    padding-left: 10px;
     margin-bottom: 10px;
 
     ul {
@@ -71,6 +70,8 @@ $dangerRed: red;
 
     &.danger,
     &.caution {
+      padding-left: 7px;
+
       .ingredientPointsTitle {
         padding: 5px 10px;
         margin: 0 0 0 -5px;

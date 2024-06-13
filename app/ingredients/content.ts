@@ -1,6 +1,12 @@
 import { StaticImageData } from "next/image";
-import images from "./images/_index";
+import images from "./content/images/_index";
 import { IngredientFlavor, IngredientSafety, IngredientType } from "./enums";
+import "./content/Allspice";
+import Allspice from "./content/Allspice";
+import AngelicaRoot from "./content/AngelicaRoot";
+import CardamomTsaoko from "./content/CardamomTsaoko";
+import CardamomGreen from "./content/CardamomGreen";
+import StarAnise from "./content/StarAnise";
 
 export interface IIngredientContent {
   caption: string;
@@ -14,6 +20,7 @@ export interface IIngredientContent {
   links?: { caption: string; url: string }[];
   safety?: { level: IngredientSafety, details?: string[] };
   isFinished?: boolean;
+  showForTesting?: boolean;
 }
 
 export function getContent(
@@ -22,117 +29,16 @@ export function getContent(
   switch (type) {
     // A
     case IngredientType.Allspice:
-      return {
-        isFinished: true,
-        caption: "Allspice",
-        navPic: images.allspice,
-        safety: { level: IngredientSafety.Safe },
-        facts: [
-          'Contains Eugenol, which gives the clove-like flavor to clove, nutmeg, cinnamon, basil, and bay leaf',
-          "The \"all\" in its name is due to tasting like a combination of cinnamon, nutmeg, and clove",
-        ],
-        recommendations: [
-          "Crack in a mortar and pestle before use to increase surface area and allow access to the aromatic internals.",
-          'Use in combination with Star Anise/Pepper/Cinnamon/Clove/Nutmeg when you want to add "warmth" or "christmas" to your flavor profile',
-        ],
-        links: [
-          {
-            caption: "Herb Co",
-            url: "https://www.herbco.com/p-1284-allspice-whole.aspx",
-          },
-          {
-            caption: "Wikipedia",
-            url: "https://en.wikipedia.org/wiki/Allspice",
-          },
-          {
-            caption: "Wikipedia (Eugenol)",
-            url: "https://en.wikipedia.org/wiki/Eugenol",
-          },
-        ],
-        scientificName: "Pimenta dioica",
-        flavors: [IngredientFlavor.Warming],
-        pairsWith: [
-          IngredientType.StarAnise,
-          IngredientType.BlackPepper,
-          IngredientType.CardamomGreen,
-          IngredientType.Cinnamon,
-          IngredientType.Clove,
-          IngredientType.Coriander,
-          IngredientType.GrainsOfParadise,
-          IngredientType.Nutmeg,
-        ],
-      };
+      return Allspice();
     case IngredientType.AngelicaRoot:
-      return {
-        caption: "Angelica Root",
-        navPic: images.angelicaroot,
-        isFinished: true,
-        facts: [
-          'Contains Cyclopentadecanolide, a synthetic musk often used in perfume',
-        ],
-        safety: {
-          level: IngredientSafety.Danger, details: [
-            'Do not consume during pregnancy.',
-            'Do not consume if you take anticoagulant medications due to a risk of uncontrolled bleeding.',
-            'Furanocoumarins may increase photosensitivity to UV radiation.',
-          ]
-        },
-        links: [
-          {
-            caption: "Herb Co",
-            url: "https://www.herbco.com/p-1280-angelica-root-cs.aspx",
-          },
-          {
-            caption: "Wikipedia (Cyclopentadecanolide)",
-            url: "https://en.wikipedia.org/wiki/Cyclopentadecanolide",
-          },
-        ],
-        scientificName: "Angelica archangelica",
-        flavors: [IngredientFlavor.Earth, IngredientFlavor.Musk],
-        pairsWith: [
-          // TODO
-        ],
-      };
+      return AngelicaRoot();
 
     // B
     // C
-    case IngredientType.CardamomBlack:
-      return {
-        caption: "Cardamom, Black",
-        navPic: images.cardamomblack,
-        isFinished: true,
-        scientificName: "Amomum subulatum",
-        facts: [
-        ],
-        safety: {
-          level: IngredientSafety.Safe
-        },
-        links: [
-          {
-            caption: "Mountain Rose Herbs",
-            url: "https://mountainroseherbs.com/black-cardamom-pods",
-          }
-        ],
-        flavors: [IngredientFlavor.Smoke],
-      };
     case IngredientType.CardamomGreen:
-      return {
-        caption: "Cardamom, Green",
-        navPic: images.cardamomgreen,
-        isFinished: true,
-        facts: [
-
-        ],
-        safety: {
-          level: IngredientSafety.Safe
-        },
-        links: [
-          {
-            caption: "Herb Co",
-            url: "https://www.herbco.com/p-331-cardamom-green-pods-whole.aspx",
-          }
-        ]
-      };
+      return CardamomGreen();
+    case IngredientType.CardamomTsaoko:
+      return CardamomTsaoko();
     case IngredientType.Cinnamon:
       return {
         caption: "Cinnamon",
@@ -190,6 +96,11 @@ export function getContent(
       };
 
     // P
+    case IngredientType.Patchouli:
+      return {
+        caption: "Patchouli",
+        navPic: images.blackpepper,
+      };
     case IngredientType.BlackPepper:
       return {
         caption: "Black Pepper",
@@ -210,47 +121,7 @@ export function getContent(
     // R
     // S
     case IngredientType.StarAnise:
-      return {
-        isFinished: true,
-        caption: "Star Anise",
-        navPic: images.starAnise,
-        detailPic: images.starAniseDetail,
-        safety: { level: IngredientSafety.Safe },
-        facts: [
-          "Contains Anethole, which gives anise and fennel their licorice flavor.",
-          'Commonly used in spice mixtures like Chinese Five-Spice, "Warming" Spice, and "Baking" Spice.',
-        ],
-        recommendations: [
-          "Grind up slightly in a mortar and pestle before use to increase surface area and release seeds.",
-          'Use in combination with Allspice/Pepper/Cinnamon/Clove/Nutmeg when you want to add "warmth" or "christmas" to your flavor profile',
-        ],
-        links: [
-          {
-            caption: "Herb Co",
-            url: "https://www.herbco.com/p-703-star-anise-whole.aspx",
-          },
-          {
-            caption: "Wikipedia",
-            url: "https://en.wikipedia.org/wiki/Illicium_verum",
-          },
-          {
-            caption: "Wikipedia (Anethole)",
-            url: "https://en.wikipedia.org/wiki/Anethole",
-          },
-        ],
-        scientificName: "Illicium verum",
-        flavors: [IngredientFlavor.Licorice, IngredientFlavor.Sweet],
-        pairsWith: [
-          IngredientType.Allspice,
-          IngredientType.BlackPepper,
-          IngredientType.CardamomGreen,
-          IngredientType.Cinnamon,
-          IngredientType.Clove,
-          IngredientType.Coriander,
-          IngredientType.GrainsOfParadise,
-          IngredientType.Nutmeg,
-        ],
-      };
+      return StarAnise();
     default:
       return null;
   }
