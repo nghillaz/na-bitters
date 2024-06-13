@@ -64,7 +64,7 @@ export function Ingredients(props: IContentProps) {
                   const flavorDetails = getFlavorDetails(f);
                   return (
                     <div
-                      className="ingredientFlavor"
+                      className="ingredientPointsContainer ingredientFlavor"
                       key={flavorDetails.name}
                       style={{ backgroundColor: flavorDetails.color }}
                     >

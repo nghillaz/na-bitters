@@ -7,6 +7,10 @@ import AngelicaRoot from "./content/AngelicaRoot";
 import CardamomTsaoko from "./content/CardamomTsaoko";
 import CardamomGreen from "./content/CardamomGreen";
 import StarAnise from "./content/StarAnise";
+import Cinnamon from "./content/Cinnamon";
+import Coriander from "./content/Coriander";
+import GrainsOfParadise from "./content/GrainsOfParadise";
+import GrapefruitPeel from "./content/GrapefruitPeel";
 
 export interface IIngredientContent {
   caption: string;
@@ -40,31 +44,18 @@ export function getContent(
     case IngredientType.CardamomTsaoko:
       return CardamomTsaoko();
     case IngredientType.Cinnamon:
-      return {
-        caption: "Cinnamon",
-        navPic: images.cinnamon,
-      };
+      return Cinnamon();
     case IngredientType.Coriander:
-      return {
-        caption: "Coriander",
-        navPic: images.coriander,
-      };
+      return Coriander();
 
     // D
     // E
     // F
     // G
     case IngredientType.GrainsOfParadise:
-      return {
-        caption: "Grains of Paradise",
-        navPic: images.grainsOfParadise,
-      };
+      return GrainsOfParadise();
     case IngredientType.GrapefruitPeel:
-      return {
-        caption: "Grapefruit Peel",
-        navPic: images.grapefruit,
-        flavors: [IngredientFlavor.Bitter],
-      };
+      return GrapefruitPeel();
 
     // H
     // I

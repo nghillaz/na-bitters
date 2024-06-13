@@ -45,6 +45,16 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
         name: "Camphor",
         color: "white",
       }
+    case IngredientFlavor.Heat:
+      return {
+        name: "Heat",
+        color: "#CB2004",
+      };
+    case IngredientFlavor.Citrus:
+      return {
+        name: "Citrus",
+        color: "#FFAE42",
+      };
     default:
       return {
         name: "<unknown flavor>",
@@ -62,6 +72,7 @@ export enum IngredientSafety {
 
 export enum IngredientFlavor {
   Bitter,
+  Citrus,
   Sweet,
   Licorice,
   Warming,
@@ -69,6 +80,7 @@ export enum IngredientFlavor {
   Musk,
   Smoke,
   Camphor,
+  Heat,
 }
 
 export enum IngredientType {
@@ -129,6 +141,9 @@ export enum IngredientType {
 
   // TODO
   Ginger,
+  Dill,
+  Caraway,
+  Fennel,
   CardamomBlack,
   ChicoryRoot,
   Clove,
