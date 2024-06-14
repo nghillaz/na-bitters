@@ -167,6 +167,7 @@ export enum IngredientType {
   Hops,
   GentianRoot,
   SarsparillaRoot,
+  Mace,
   SassafrasBark,
   Wormwood,
   QuassiaChip,

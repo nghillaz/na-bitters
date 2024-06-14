@@ -1,7 +1,6 @@
 import { StaticImageData } from "next/image";
 import images from "./content/images/_index";
 import { IngredientFlavor, IngredientSafety, IngredientType } from "./enums";
-import "./content/Allspice";
 import Allspice from "./content/Allspice";
 import AngelicaRoot from "./content/AngelicaRoot";
 import CardamomTsaoko from "./content/CardamomTsaoko";
@@ -11,6 +10,8 @@ import Cinnamon from "./content/Cinnamon";
 import Coriander from "./content/Coriander";
 import GrainsOfParadise from "./content/GrainsOfParadise";
 import GrapefruitPeel from "./content/GrapefruitPeel";
+import LimePeel from "./content/LimePeel";
+import Nutmeg from "./content/Nutmeg";
 
 export interface IIngredientContent {
   caption: string;
@@ -63,20 +64,12 @@ export function getContent(
     // K
     // L
     case IngredientType.LimePeel:
-      return {
-        caption: "Lime Peel",
-        navPic: images.lime,
-        flavors: [IngredientFlavor.Bitter],
-      };
+      return LimePeel();
 
     // M
     // N
     case IngredientType.Nutmeg:
-      return {
-        caption: "Nutmeg",
-        navPic: images.nutmeg,
-        detailPic: images.nutmegDetail,
-      };
+      return Nutmeg();
 
     // O
     case IngredientType.OrangePeel:
