@@ -6,14 +6,13 @@ export default function Nutmeg(): IIngredientContent {
     return {
         caption: "Nutmeg",
         navPic: images.nutmeg,
-        detailPic: images.nutmegDetail,
         facts: [
-            'The spice mace is produced from nutmeg\'s seed covering',
+            'The spice mace is produced from nutmeg\'s seed covering.',
             'Can be expressed to create nutmeg butter.',
         ],
         showForTesting: true,
         recommendations: [
-            "Crack in a mortar and pestle before use to increase surface area and penetration into the aromatic interior",
+            "Crack in a mortar and pestle before use to increase surface area and penetration into the aromatic interior.",
         ],
         flavors: [IngredientFlavor.Warming],
         links: [

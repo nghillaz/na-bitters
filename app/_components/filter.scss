@@ -25,7 +25,7 @@
 
     .filterIcon {
       border-style: none;
-      margin-right: 3px;
+      margin-right: 6px;
     }
   }
 
@@ -48,7 +48,7 @@
     background-color: white;
     border-style: solid;
     border-top-style: none;
-    border-width: 1px;
+    border-width: 0px;
     border-color: black;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -61,27 +61,39 @@
     left: 0px;
     margin-left: -1px;
     padding-top: 5px;
+    transition: max-height .5s, opacity 0.1s;
 
     &.visible {
-      transition: max-height 1s, opacity 0.2s;
       opacity: 1;
       max-height: 100vh;
       pointer-events: unset;
+      border-width: 1px;
     }
 
     .dropdownOption {
+      transition-property: transform, max-height, padding, margin;
+      transition-timing-function: linear;
       justify-content: flex-start;
-      padding: 7px;
-
+      max-height: 0px;
+      padding: 0px 7px;
+      margin: 0px;
+      width: calc(100% - 24px);
+      
       .icon {
         transition-property: transform;
-        transition-duration: 0.2s;
+        transition-duration: 0.1s;
         transform: rotateX(0deg);
-
+        
         &.remove {
           transform: rotate(45deg);
         }
       }
+    }
+    
+    &.visible .dropdownOption {
+      max-height: 999px;
+      margin: 2px 4px;
+      padding: 7px;
     }
   }
 }

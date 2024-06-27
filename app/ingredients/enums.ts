@@ -92,8 +92,10 @@ export enum IngredientType {
 
   // B
   // C
+  CardamomBlack,
   CardamomTsaoko,
   CardamomGreen,
+  CinchonaBark,
   Cinnamon,
   Coriander,
 
@@ -144,7 +146,6 @@ export enum IngredientType {
   Dill,
   Caraway,
   Fennel,
-  CardamomBlack,
   ChicoryRoot,
   Clove,
   Lemongrass,

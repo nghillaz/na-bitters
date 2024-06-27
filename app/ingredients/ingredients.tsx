@@ -50,15 +50,6 @@ export function Ingredients(props: IContentProps) {
               <div className="scientificName">
                 {ingredientContent.scientificName ?? "<SCIENTIFIC NAME>"}
               </div>
-              <div className="ingredientImage">
-                <Image
-                  className="actualImage"
-                  src={ingredientContent.detailPic ?? images.ingredients}
-                  alt=""
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
               <div>
                 {ingredientContent.flavors?.map((f) => {
                   const flavorDetails = getFlavorDetails(f);

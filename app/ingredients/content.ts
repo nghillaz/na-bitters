@@ -12,11 +12,12 @@ import GrainsOfParadise from "./content/GrainsOfParadise";
 import GrapefruitPeel from "./content/GrapefruitPeel";
 import LimePeel from "./content/LimePeel";
 import Nutmeg from "./content/Nutmeg";
+import CinchonaBark from "./content/CinchonaBark";
+import CardamomBlack from "./content/CardamomBlack";
 
 export interface IIngredientContent {
   caption: string;
   navPic: StaticImageData;
-  detailPic?: StaticImageData;
   scientificName?: string;
   facts?: string[];
   recommendations?: string[];
@@ -40,10 +41,14 @@ export function getContent(
 
     // B
     // C
+    case IngredientType.CardamomBlack:
+      return CardamomBlack();
     case IngredientType.CardamomGreen:
       return CardamomGreen();
     case IngredientType.CardamomTsaoko:
       return CardamomTsaoko();
+    case IngredientType.CinchonaBark:
+      return CinchonaBark();
     case IngredientType.Cinnamon:
       return Cinnamon();
     case IngredientType.Coriander:

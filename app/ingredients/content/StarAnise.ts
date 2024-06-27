@@ -7,7 +7,6 @@ export default function StarAnise(): IIngredientContent {
         isFinished: true,
         caption: "Star Anise",
         navPic: images.starAnise,
-        detailPic: images.starAniseDetail,
         safety: { level: IngredientSafety.Safe },
         facts: [
             "Contains Anethole, which gives anise and fennel their licorice flavor.",
