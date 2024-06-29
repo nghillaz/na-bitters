@@ -1,4 +1,5 @@
 .popupContainer {
+  display: flex;
   z-index: 998;
   position: absolute;
   transition-property: opacity;
@@ -33,6 +34,7 @@
     margin: 30px;
     height: calc(100% - 60px);
     width: calc(100vw - 60px);
+    max-width: 1000px;
     transition-property: opacity, top, left, right, bottom;
     transition-duration: 0.2s;
     pointer-events: none;

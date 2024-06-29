@@ -14,6 +14,8 @@ import LimePeel from "./content/LimePeel";
 import Nutmeg from "./content/Nutmeg";
 import CinchonaBark from "./content/CinchonaBark";
 import CardamomBlack from "./content/CardamomBlack";
+import OrangePeel from "./content/OrangePeel";
+import Patchouli from "./content/Patchouli";
 
 export interface IIngredientContent {
   caption: string;
@@ -24,7 +26,7 @@ export interface IIngredientContent {
   flavors?: IngredientFlavor[];
   pairsWith?: IngredientType[];
   links?: { caption: string; url: string }[];
-  safety?: { level: IngredientSafety, details?: string[] };
+  safety?: { level: IngredientSafety; details?: string[] };
   isFinished?: boolean;
   showForTesting?: boolean;
 }
@@ -78,18 +80,11 @@ export function getContent(
 
     // O
     case IngredientType.OrangePeel:
-      return {
-        caption: "Orange Peel",
-        navPic: images.orange,
-        flavors: [IngredientFlavor.Bitter],
-      };
+      return OrangePeel();
 
     // P
     case IngredientType.Patchouli:
-      return {
-        caption: "Patchouli",
-        navPic: images.blackpepper,
-      };
+      return Patchouli();
     case IngredientType.BlackPepper:
       return {
         caption: "Black Pepper",

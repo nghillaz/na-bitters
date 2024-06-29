@@ -17,6 +17,7 @@ import redpepperflake from "./ingredients/redpepperflake.png";
 import cinnamon from "./ingredients/cinnamon.png";
 import cinchonabark from "./ingredients/cinchonabark.png";
 import cardamomblack from "./ingredients/cardamomblack.png";
+import patchouli from "./ingredients/patchouli.png";
 
 const index = {
   orange,
@@ -38,6 +39,7 @@ const index = {
   cinnamon,
   cinchonabark,
   cardamomblack,
+  patchouli,
 };
 
 export default index;
