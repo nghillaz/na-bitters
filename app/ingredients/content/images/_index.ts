@@ -1,5 +1,5 @@
 import orange from "./ingredients/orange.png";
-import grainsOfParadise from "./ingredients/grainsofparadise.png";
+import grainsofparadise from "./ingredients/grainsofparadise.png";
 import starAnise from "./ingredients/staranise.png";
 import lemon from "./ingredients/lemon.png";
 import nutmeg from "./ingredients/nutmeg.png";
@@ -18,10 +18,11 @@ import cinnamon from "./ingredients/cinnamon.png";
 import cinchonabark from "./ingredients/cinchonabark.png";
 import cardamomblack from "./ingredients/cardamomblack.png";
 import patchouli from "./ingredients/patchouli.png";
+import chicoryroot from "./ingredients/chicoryroot.png";
 
 const index = {
   orange,
-  grainsOfParadise,
+  grainsofparadise,
   starAnise,
   lemon,
   nutmeg,
@@ -40,6 +41,7 @@ const index = {
   cinchonabark,
   cardamomblack,
   patchouli,
+  chicoryroot,
 };
 
 export default index;

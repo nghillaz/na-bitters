@@ -5,19 +5,20 @@ import images from "./images/_index";
 export default function GrainsOfParadise(): IIngredientContent {
   return {
     caption: "Grains of Paradise",
-    navPic: images.grainsOfParadise,
+    navPic: images.grainsofparadise,
     scientificName: "Aframomum melegueta",
     showForTesting: true,
     facts: [
       "Strong peppery flavor with mild heat and a hint of citrus and nutmeg.",
       "Commonly used in West and North African cuisine and uncommonly used as a pepper substitute elsewhere.",
     ],
-    flavors: [
-      IngredientFlavor.Heat, IngredientFlavor.Citrus,
-    ],
+    flavors: [IngredientFlavor.Spicy, IngredientFlavor.Citrusy],
     links: [
-      { caption: "Wikipedia", url: "https://en.wikipedia.org/wiki/Grains_of_paradise" }
+      {
+        caption: "Wikipedia",
+        url: "https://en.wikipedia.org/wiki/Grains_of_paradise",
+      },
     ],
-    safety: { level: IngredientSafety.Safe }
+    safety: { level: IngredientSafety.Safe },
   };
 }

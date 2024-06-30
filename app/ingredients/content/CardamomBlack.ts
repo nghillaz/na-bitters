@@ -9,11 +9,11 @@ export default function CardamomBlack(): IIngredientContent {
     navPic: images.cardamomblack,
     showForTesting: true,
     safety: {
-      level: IngredientSafety.Safe
+      level: IngredientSafety.Safe,
     },
     facts: [
       "Not to be confused with Cardamom Tsaoko, often also called black cardamom.",
-      "Has a distinct camphorous flavor that cools similarly to menthol."
+      "Has a distinct camphorous flavor that cools similarly to menthol.",
     ],
     links: [
       {
@@ -25,9 +25,8 @@ export default function CardamomBlack(): IIngredientContent {
         url: "https://en.wikipedia.org/wiki/Black_cardamom",
       },
     ],
-    recommendations: [
-    ],
+    recommendations: [],
     pairsWith: [], // TODO
-    flavors: [IngredientFlavor.Camphor, IngredientFlavor.Smoke],
+    flavors: [IngredientFlavor.Camphorous, IngredientFlavor.Smoky],
   };
 }

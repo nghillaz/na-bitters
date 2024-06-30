@@ -1,4 +1,4 @@
-enum IngredientCategory { }
+enum IngredientCategory {}
 
 export function getFlavorDetails(flavor: IngredientFlavor): {
   name: string;
@@ -23,37 +23,42 @@ export function getFlavorDetails(flavor: IngredientFlavor): {
     case IngredientFlavor.Warming:
       return {
         name: "Warming",
-        color: "#D47E30"
-      }
-    case IngredientFlavor.Earth:
+        color: "#D47E30",
+      };
+    case IngredientFlavor.Earthy:
       return {
-        name: "Earth",
-        color: "#806043"
-      }
-    case IngredientFlavor.Musk:
+        name: "Earthy",
+        color: "#806043",
+      };
+    case IngredientFlavor.Musky:
       return {
-        name: "Musk",
+        name: "Musky",
         color: "#CCA195",
-      }
-    case IngredientFlavor.Smoke:
+      };
+    case IngredientFlavor.Smoky:
       return {
-        name: "Smoke",
-        color: "#C9D0D2"
-      }
-    case IngredientFlavor.Camphor:
+        name: "Smoky",
+        color: "#C9D0D2",
+      };
+    case IngredientFlavor.Camphorous:
       return {
-        name: "Camphor",
+        name: "Camphorous",
         color: "white",
-      }
-    case IngredientFlavor.Heat:
+      };
+    case IngredientFlavor.Spicy:
       return {
-        name: "Heat",
+        name: "Spicy",
         color: "#CB2004",
       };
-    case IngredientFlavor.Citrus:
+    case IngredientFlavor.Citrusy:
       return {
-        name: "Citrus",
+        name: "Citrusy",
         color: "#FFAE42",
+      };
+    case IngredientFlavor.Roasted:
+      return {
+        name: "Roasted",
+        color: "#AD5B29",
       };
     default:
       return {
@@ -69,18 +74,18 @@ export enum IngredientSafety {
   Danger,
 }
 
-
 export enum IngredientFlavor {
   Bitter,
-  Citrus,
+  Citrusy,
   Sweet,
   Licorice,
   Warming,
-  Earth,
-  Musk,
-  Smoke,
-  Camphor,
-  Heat,
+  Earthy,
+  Musky,
+  Smoky,
+  Camphorous,
+  Spicy,
+  Roasted,
 }
 
 export enum IngredientType {
@@ -95,6 +100,7 @@ export enum IngredientType {
   CardamomBlack,
   CardamomTsaoko,
   CardamomGreen,
+  ChicoryRoot,
   CinchonaBark,
   Cinnamon,
   Coriander,
@@ -123,12 +129,12 @@ export enum IngredientType {
 
   // P
   BlackPepper,
-  RedPepperFlake,
   WhitePepper,
   Patchouli,
 
   // Q
   // R
+  RedPepperFlake,
   // S
   SichuanPepper, // TODO
   StarAnise,
@@ -146,7 +152,6 @@ export enum IngredientType {
   Dill,
   Caraway,
   Fennel,
-  ChicoryRoot,
   Clove,
   Lemongrass,
   Rosemary,

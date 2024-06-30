@@ -12,17 +12,15 @@ export default function Coriander(): IIngredientContent {
       "Sourced from the same plant as cilantro (cilantro from the leaves and coriander from the dried seeds).",
       "Commonly used as a pickling brine ingredient to add a citrus flavor.",
     ],
-    recommendations: [
-      'Toast before use to enhance the flavor.',
-    ],
-    flavors: [
-      IngredientFlavor.Warming, IngredientFlavor.Citrus,
-    ],
+    recommendations: ["Toast before use to enhance the flavor."],
+    flavors: [IngredientFlavor.Warming, IngredientFlavor.Citrusy],
     pairsWith: [
-      IngredientType.BlackPepper, IngredientType.Caraway, IngredientType.Fennel,
+      IngredientType.BlackPepper,
+      IngredientType.Caraway,
+      IngredientType.Fennel,
     ],
     links: [
-      { caption: "Wikipedia", url: "https://en.wikipedia.org/wiki/Coriander" }
+      { caption: "Wikipedia", url: "https://en.wikipedia.org/wiki/Coriander" },
     ],
   };
 }

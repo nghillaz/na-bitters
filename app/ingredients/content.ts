@@ -16,6 +16,9 @@ import CinchonaBark from "./content/CinchonaBark";
 import CardamomBlack from "./content/CardamomBlack";
 import OrangePeel from "./content/OrangePeel";
 import Patchouli from "./content/Patchouli";
+import BlackPepper from "./content/BlackPepper";
+import RedPepperFlake from "./content/RedPepperFlake";
+import ChicoryRoot from "./content/ChicoryRoot";
 
 export interface IIngredientContent {
   caption: string;
@@ -47,6 +50,8 @@ export function getContent(
       return CardamomBlack();
     case IngredientType.CardamomGreen:
       return CardamomGreen();
+    case IngredientType.ChicoryRoot:
+      return ChicoryRoot();
     case IngredientType.CardamomTsaoko:
       return CardamomTsaoko();
     case IngredientType.CinchonaBark:
@@ -86,15 +91,7 @@ export function getContent(
     case IngredientType.Patchouli:
       return Patchouli();
     case IngredientType.BlackPepper:
-      return {
-        caption: "Black Pepper",
-        navPic: images.blackpepper,
-      };
-    case IngredientType.RedPepperFlake:
-      return {
-        caption: "Red Pepper Flakes",
-        navPic: images.redpepperflake,
-      };
+      return BlackPepper();
     case IngredientType.WhitePepper:
       return {
         caption: "White Pepper",
@@ -103,6 +100,9 @@ export function getContent(
 
     // Q
     // R
+    case IngredientType.RedPepperFlake:
+      return RedPepperFlake();
+
     // S
     case IngredientType.StarAnise:
       return StarAnise();

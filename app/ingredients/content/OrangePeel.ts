@@ -8,7 +8,7 @@ export default function OrangePeel(): IIngredientContent {
     scientificName: "Citrus sinensis",
     facts: [""],
     navPic: images.orange,
-    flavors: [IngredientFlavor.Citrus],
+    flavors: [IngredientFlavor.Citrusy],
     showForTesting: true,
     links: [
       {
