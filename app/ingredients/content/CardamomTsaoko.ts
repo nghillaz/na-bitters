@@ -4,9 +4,9 @@ import images from "./images/_index";
 
 export default function CardamomTsaoko(): IIngredientContent {
   return {
+    isFinished: true,
     caption: "Cardamom, Tsaoko",
     navPic: images.cardamomtsaoko,
-    isFinished: true,
     scientificName: "Lanxangia tsaoko",
     facts: [
       "Alternatively labeled as thảo quả, cǎo guǒ, or 草果",

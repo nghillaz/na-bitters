@@ -34,7 +34,7 @@ export default function Allspice(): IIngredientContent {
         flavors: [IngredientFlavor.Warming],
         pairsWith: [
           IngredientType.StarAnise,
-          IngredientType.BlackPepper,
+          IngredientType.Pepper,
           IngredientType.CardamomGreen,
           IngredientType.Cinnamon,
           IngredientType.Clove,

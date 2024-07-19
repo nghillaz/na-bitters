@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function Cinnamon(): IIngredientContent {
   return {
+    isFinished: true,
     caption: "Cinnamon",
     navPic: images.cinnamon,
     scientificName: "Cinnamomum cassia/verum",
-    showForTesting: true,
     flavors: [IngredientFlavor.Warming],
     facts: [
       'There are two primary types of cinnamon - Cassia and Ceylon.',
@@ -19,7 +19,7 @@ export default function Cinnamon(): IIngredientContent {
     ]},
     pairsWith: [
       IngredientType.StarAnise,
-      IngredientType.BlackPepper,
+      IngredientType.Pepper,
       IngredientType.CardamomGreen,
       IngredientType.GrainsOfParadise,
       IngredientType.Nutmeg,

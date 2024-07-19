@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function CardamomBlack(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Cardamom, Black",
     scientificName: "Amomum subulatum",
     navPic: images.cardamomblack,
-    showForTesting: true,
     safety: {
       level: IngredientSafety.Safe,
     },

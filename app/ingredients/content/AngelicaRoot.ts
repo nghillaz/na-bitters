@@ -4,9 +4,9 @@ import images from "./images/_index";
 
 export default function AngelicaRoot(): IIngredientContent {
   return {
+    isFinished: true,
     caption: "Angelica Root",
     navPic: images.angelicaroot,
-    isFinished: true,
     facts: [
       "Contains Cyclopentadecanolide, a synthetic musk often used in perfume",
     ],

@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function Patchouli(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Patchouli",
     navPic: images.patchouli,
     scientificName: "Pogostemon cablin",
-    showForTesting: true,
     facts: [
       "Used widely as a scent component in perfume, cologne, and cleaning products.",
       "Surged in popularity in the 1960s due to its adoption in hippie culture.",

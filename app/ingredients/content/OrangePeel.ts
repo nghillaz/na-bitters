@@ -4,12 +4,12 @@ import images from "./images/_index";
 
 export default function OrangePeel(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Orange Peel",
     scientificName: "Citrus sinensis",
     facts: [""],
     navPic: images.orange,
     flavors: [IngredientFlavor.Citrusy],
-    showForTesting: true,
     links: [
       {
         caption: "Wikipedia",

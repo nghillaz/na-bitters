@@ -4,9 +4,9 @@ import images from "./images/_index";
 
 export default function CardamomGreen(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Cardamom, Green",
     navPic: images.cardamomgreen,
-    showForTesting: true,
     facts: [
     ],
     safety: {

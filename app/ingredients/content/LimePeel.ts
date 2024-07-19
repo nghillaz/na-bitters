@@ -4,6 +4,7 @@ import images from "./images/_index";
 
 export default function LimePeel(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Lime Peel",
     scientificName: "Citrus latifolia",
     facts: [
@@ -11,7 +12,6 @@ export default function LimePeel(): IIngredientContent {
     ],
     navPic: images.lime,
     flavors: [IngredientFlavor.Bitter, IngredientFlavor.Citrusy],
-    showForTesting: true,
     links: [
       {
         caption: "Wikipedia",

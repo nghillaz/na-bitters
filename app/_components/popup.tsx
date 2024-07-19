@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { classList } from "./_common";
 import { IconButton } from "./button";
 import images from "../images/_index";
@@ -9,6 +9,9 @@ export function Popup(props: {
   onClose: Function;
   content: JSX.Element;
 }) {
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const escapeListener: EventListener = (event: Event) => {
       const keyboardEvent = event as KeyboardEvent;
@@ -26,8 +29,14 @@ export function Popup(props: {
 
   return (
     <div
+      ref={containerRef}
       className={classList(["popupContainer", props.visible ? "visible" : ""])}
-      onClick={(event) => event.stopPropagation()}
+      onClick={(event) => {
+        if (event.target === containerRef.current) {
+          props.onClose();
+        }
+        event.stopPropagation();
+      }}
       onKeyDown={(event) => {
         if (event.key === "Escape") {
           props.onClose();

@@ -16,7 +16,7 @@ import CinchonaBark from "./content/CinchonaBark";
 import CardamomBlack from "./content/CardamomBlack";
 import OrangePeel from "./content/OrangePeel";
 import Patchouli from "./content/Patchouli";
-import BlackPepper from "./content/BlackPepper";
+import Pepper from "./content/Pepper";
 import RedPepperFlake from "./content/RedPepperFlake";
 import ChicoryRoot from "./content/ChicoryRoot";
 
@@ -90,13 +90,8 @@ export function getContent(
     // P
     case IngredientType.Patchouli:
       return Patchouli();
-    case IngredientType.BlackPepper:
-      return BlackPepper();
-    case IngredientType.WhitePepper:
-      return {
-        caption: "White Pepper",
-        navPic: images.whitepepper,
-      };
+    case IngredientType.Pepper:
+      return Pepper();
 
     // Q
     // R

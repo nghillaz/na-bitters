@@ -4,9 +4,9 @@ import images from "./images/_index";
 
 export default function GrapefruitPeel(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Grapefruit Peel",
     navPic: images.grapefruit,
-    showForTesting: true,
     flavors: [IngredientFlavor.Bitter, IngredientFlavor.Citrusy],
     links: [
       { caption: "Wikipedia", url: "https://en.wikipedia.org/wiki/Grapefruit" },

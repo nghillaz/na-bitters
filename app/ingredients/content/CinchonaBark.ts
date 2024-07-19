@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function CinchonaBark(): IIngredientContent {
   return {
+    isFinished: true,
     caption: "Cinchona Bark",
     navPic: images.cinchonabark,
     scientificName: "Cinchona officinalis",
-    showForTesting: true,
     facts: [
       "Historical effective treatment for malaria"
     ],

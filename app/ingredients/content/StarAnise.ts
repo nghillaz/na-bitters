@@ -34,7 +34,7 @@ export default function StarAnise(): IIngredientContent {
         flavors: [IngredientFlavor.Licorice, IngredientFlavor.Sweet],
         pairsWith: [
             IngredientType.Allspice,
-            IngredientType.BlackPepper,
+            IngredientType.Pepper,
             IngredientType.CardamomGreen,
             IngredientType.Cinnamon,
             IngredientType.Clove,

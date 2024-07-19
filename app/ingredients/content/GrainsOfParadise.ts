@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function GrainsOfParadise(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Grains of Paradise",
     navPic: images.grainsofparadise,
     scientificName: "Aframomum melegueta",
-    showForTesting: true,
     facts: [
       "Strong peppery flavor with mild heat and a hint of citrus and nutmeg.",
       "Commonly used in West and North African cuisine and uncommonly used as a pepper substitute elsewhere.",

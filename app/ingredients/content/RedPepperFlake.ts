@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function RedPepperFlake(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Red Pepper Flake",
     navPic: images.redpepperflake,
     scientificName: "capsicum annuum",
-    showForTesting: true,
     flavors: [IngredientFlavor.Spicy],
     facts: [
       "Made from a variety of peppers in the capsicum annum family but primarily cayenne.",

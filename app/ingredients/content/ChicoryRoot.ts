@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function ChicoryRoot(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Chicory Root, Roasted",
     scientificName: "Cichorium intybus",
     navPic: images.chicoryroot,
-    showForTesting: true,
     flavors: [
       IngredientFlavor.Roasted,
       IngredientFlavor.Earthy,

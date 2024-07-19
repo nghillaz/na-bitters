@@ -4,10 +4,10 @@ import images from "./images/_index";
 
 export default function Coriander(): IIngredientContent {
   return {
+    showForTesting: true,
     caption: "Coriander",
     scientificName: "Coriandrum sativum",
     navPic: images.coriander,
-    showForTesting: true,
     facts: [
       "Sourced from the same plant as cilantro (cilantro from the leaves and coriander from the dried seeds).",
       "Commonly used as a pickling brine ingredient to add a citrus flavor.",
@@ -15,7 +15,7 @@ export default function Coriander(): IIngredientContent {
     recommendations: ["Toast before use to enhance the flavor."],
     flavors: [IngredientFlavor.Warming, IngredientFlavor.Citrusy],
     pairsWith: [
-      IngredientType.BlackPepper,
+      IngredientType.Pepper,
       IngredientType.Caraway,
       IngredientType.Fennel,
     ],

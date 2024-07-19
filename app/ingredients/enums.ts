@@ -128,8 +128,7 @@ export enum IngredientType {
   OrangePeel,
 
   // P
-  BlackPepper,
-  WhitePepper,
+  Pepper,
   Patchouli,
 
   // Q
