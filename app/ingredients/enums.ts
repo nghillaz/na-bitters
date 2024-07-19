@@ -103,6 +103,7 @@ export enum IngredientType {
   ChicoryRoot,
   CinchonaBark,
   Cinnamon,
+  Clove,
   Coriander,
 
   // D
@@ -151,7 +152,6 @@ export enum IngredientType {
   Dill,
   Caraway,
   Fennel,
-  Clove,
   Lemongrass,
   Rosemary,
   VanillaBean,

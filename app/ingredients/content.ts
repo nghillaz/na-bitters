@@ -19,6 +19,7 @@ import Patchouli from "./content/Patchouli";
 import Pepper from "./content/Pepper";
 import RedPepperFlake from "./content/RedPepperFlake";
 import ChicoryRoot from "./content/ChicoryRoot";
+import Clove from "./content/Clove";
 
 export interface IIngredientContent {
   caption: string;
@@ -58,6 +59,8 @@ export function getContent(
       return CinchonaBark();
     case IngredientType.Cinnamon:
       return Cinnamon();
+      case IngredientType.Clove:
+        return Clove();
     case IngredientType.Coriander:
       return Coriander();
 
